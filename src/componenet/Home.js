@@ -8,6 +8,34 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle menu visibility
+
+  // Add CSS animation for scrolling
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+      
+      .animate-scroll:hover {
+        animation-play-state: paused;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
   const [scrolled, setScrolled] = useState(false);
 
 
@@ -94,7 +122,7 @@ function Home() {
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
                 {/* Logo */}
-                <img src="univarsal_logo.jpeg" className="h-11 w-15 rounded" />
+                <img src="univarsal_logo.jpeg" alt="Universal Soft Lab Logo" className="h-11 w-15 rounded" />
                 <div className="text-white text-2xl font-bold ml-3">
                   Universal Soft Lab
                 </div>
@@ -118,26 +146,38 @@ function Home() {
                 >
                   Home
                 </Link>
-                <a
-                  href="/about"
+                <Link
+                  to="/about"
                   className="text-white text-lg hover:text-orange-500"
                 >
                   About
-                </a>
-                <a
-                  href="/services"
+                </Link>
+                <Link
+                  to="/services"
                   className="text-white text-lg hover:text-orange-500"
                 >
                   Services
-                </a>
-                <a
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/products"
                   className="text-white text-lg hover:text-orange-500"
                 >
-                  Product
-                </a>
+                  Products
+                </Link>
                 <Link
-                  to="/Contect"
+                  to="/team"
+                  className="text-white text-lg hover:text-orange-500"
+                >
+                  Team
+                </Link>
+                <Link
+                  to="/gallery"
+                  className="text-white text-lg hover:text-orange-500"
+                >
+                  Gallery
+                </Link>
+                <Link
+                  to="/contact"
                   className="text-white text-lg hover:text-orange-500"
                 >
                   Contact
@@ -157,25 +197,37 @@ function Home() {
             <a href="/" className="text-lg hover:text-orange-500 block py-2">
               Home
             </a>
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="text-lg hover:text-orange-500 block py-2"
             >
               About
-            </a>
-            <a
-              href="/services"
+            </Link>
+            <Link
+              to="/services"
               className="text-lg hover:text-orange-500 block py-2"
             >
               Services
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/products"
               className="text-lg hover:text-orange-500 block py-2"
             >
-              Product
-            </a>
-            <Link to ="#" className="text-lg hover:text-orange-500 block py-2">
+              Products
+            </Link>
+            <Link
+              to="/team"
+              className="text-lg hover:text-orange-500 block py-2"
+            >
+              Team
+            </Link>
+            <Link
+              to="/gallery"
+              className="text-lg hover:text-orange-500 block py-2"
+            >
+              Gallery
+            </Link>
+            <Link to="/contact" className="text-lg hover:text-orange-500 block py-2">
               Contact
             </Link>
           </div>
@@ -184,13 +236,10 @@ function Home() {
         {/* Main Content */}
         <div className="pt-32">
           <h1 className="text-white text-6xl ml-36">
-            World’s Leading Machine Learning Company
+            Universal Soft Lab - Leading Software Development Company
           </h1>
           <p className="text-white mt-8 ml-36">
-            ML today are able to supply needful of help, information, and
-            positive experience of maintaining intimacy with customers.
-            Eventually, chatbot ideas bring a pleasant experience of all these
-            qualities into the conversation.
+            With 18+ years of experience in software development, we specialize in creating innovative solutions for Desktop, Web, and Mobile applications. Our expertise spans across Banking, Healthcare, Manufacturing, and ERP solutions.
           </p>
         </div>
 
@@ -201,12 +250,10 @@ function Home() {
             <div className="absolute inset-0 bg-[#ff4d01] transition-all duration-500 group-hover:w-full w-0"></div>
             <div className="text-white p-5 relative z-10">
               <h3 className="text-2xl">
-                Robotic Process <br /> Automation
+                Desktop Application <br /> Development
               </h3>
               <p className="mt-3">
-                Lorem ipsum dolor consectetur <br /> adipiscing elit, sed do
-                eiusmod <br /> tempor incididunt ut labore. <br /> Ut enim ad
-                minim veniam.
+                Custom Windows applications using C# and .NET Framework for enterprise solutions, banking systems, and business applications.
               </p>
             </div>
           </div>
@@ -215,11 +262,9 @@ function Home() {
           <div className="relative group hover:shadow-lg rounded overflow-hidden mb-5">
             <div className="absolute inset-0 bg-[#ff4d01] transition-all duration-500 group-hover:w-full w-0"></div>
             <div className="text-white p-5 relative z-10">
-              <h3 className="text-2xl">Cognitive Automation</h3>
+              <h3 className="text-2xl">Web Development</h3>
               <p className="mt-9">
-                Lorem ipsum dolor consectetur <br /> adipiscing elit, sed do
-                eiusmod tempor <br /> incididunt ut labore. Ut enim ad minim{" "}
-                <br /> veniam.
+                Modern web applications using React, MVC, and CodeIgniter frameworks for responsive and scalable business solutions.
               </p>
             </div>
           </div>
@@ -228,12 +273,302 @@ function Home() {
           <div className="relative group hover:shadow-lg rounded overflow-hidden mb-5">
             <div className="absolute inset-0 bg-[#ff4d01] transition-all duration-500 group-hover:w-full w-0"></div>
             <div className="text-white p-5 relative z-10">
-              <h3 className="text-2xl">Cognitive Engagement</h3>
+              <h3 className="text-2xl">Mobile Applications</h3>
               <p className="mt-9">
-                Lorem ipsum dolor consectetur <br /> adipiscing elit, sed do
-                eiusmod tempor <br /> incididunt ut labore. Ut enim ad minim{" "}
-                <br /> veniam.
+                Cross-platform mobile apps using React Native and Flutter for iOS and Android, delivering native performance and user experience.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Client Testimonials */}
+      <div className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Hear what our prestigious clients have to say about our services and solutions.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  MP
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-800">M.P. Police</h4>
+                  <p className="text-gray-600 text-sm">Government</p>
+                </div>
+              </div>
+              <p className="text-gray-700 italic">
+                "Exceptional police management system that streamlined our operations. Universal Soft Lab's attention to detail is outstanding."
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  HE
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-800">Hardiya Ete Hospital</h4>
+                  <p className="text-gray-600 text-sm">Healthcare</p>
+                </div>
+              </div>
+              <p className="text-gray-700 italic">
+                "The hospital management system revolutionized our patient care. Their healthcare expertise is truly commendable."
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  SB
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-800">SBI Bank Employee Society</h4>
+                  <p className="text-gray-600 text-sm">Banking</p>
+                </div>
+              </div>
+              <p className="text-gray-700 italic">
+                "Banking software solution enhanced our member services significantly. Their understanding of banking operations is exceptional."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mission, Vision & Values */}
+      <div className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Mission, Vision & Values</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              The principles that drive our commitment to excellence in software development.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="bg-orange-500 p-8 rounded-lg text-white">
+              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+              <p className="text-lg">
+                To provide innovative, reliable, and scalable software solutions that empower businesses to achieve their goals through technology. We bridge the gap between complex business requirements and cutting-edge technology solutions.
+              </p>
+            </div>
+            
+            <div className="bg-gray-800 p-8 rounded-lg text-white">
+              <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+              <p className="text-lg">
+                To be the leading software development company in India, recognized for our technical expertise and commitment to client success. We envision a world where every organization can leverage cutting-edge software solutions.
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Core Values</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-center">
+                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                  Innovation & Excellence
+                </li>
+                <li className="flex items-center">
+                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                  Quality & Security
+                </li>
+                <li className="flex items-center">
+                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                  Client-Centric Approach
+                </li>
+                <li className="flex items-center">
+                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                  Scalability & Integrity
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Our Clients Section */}
+      <div className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Trusted by Leading Organizations</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We are proud to serve prestigious clients across various sectors including government, healthcare, banking, and manufacturing.
+            </p>
+          </div>
+          
+          {/* Auto-scrolling client cards */}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll space-x-8">
+              {/* Client Card 1 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      MP
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">M.P. Police</h3>
+                      <p className="text-sm text-gray-600">Government Organization</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Comprehensive police management system with case tracking, personnel management, and crime analytics. Streamlined operations and improved public safety.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Successfully Deployed</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Card 2 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      JN
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">Jawarlal Nehru Soot Mill</h3>
+                      <p className="text-sm text-gray-600">Manufacturing Industry</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Complete ERP solution for manufacturing operations including inventory management, production planning, and quality control systems.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ 40% Efficiency Gain</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Card 3 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      HE
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">Hardiya Ete Hospital</h3>
+                      <p className="text-sm text-gray-600">Healthcare Sector</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Advanced hospital management system with patient records, appointment scheduling, billing, and pharmacy management modules.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Enhanced Patient Care</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Card 4 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      SB
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">SBI Bank Employee Society</h3>
+                      <p className="text-sm text-gray-600">Banking Sector</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Secure banking software solution for employee society management with loan processing, member services, and financial reporting.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Secure & Reliable</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Card 5 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      IP
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">IPC Bank Employee Society</h3>
+                      <p className="text-sm text-gray-600">Banking Sector</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Cooperative society management system with member registration, loan management, and automated financial calculations.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Streamlined Operations</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Card 6 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      SA
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">Sarafa Association</h3>
+                      <p className="text-sm text-gray-600">Trade & Commerce</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Trade management system for jewelry and precious metals business with inventory tracking, customer management, and sales analytics.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Modernized Business</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Card 7 */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      IM
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">Indore Municipal Corporation</h3>
+                      <p className="text-sm text-gray-600">Government Organization</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Municipal management system for citizen services, property tax collection, and urban planning with digital governance features.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Digital Governance</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Duplicate cards for seamless scrolling */}
+              <div className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      MP
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-bold text-gray-800">M.P. Police</h3>
+                      <p className="text-sm text-gray-600">Government Organization</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    Comprehensive police management system with case tracking, personnel management, and crime analytics. Streamlined operations and improved public safety.
+                  </p>
+                  <div className="mt-4 flex items-center text-orange-500">
+                    <span className="text-sm font-semibold">✓ Successfully Deployed</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -245,37 +580,30 @@ function Home() {
           <img
             src="picture1 (2).jpg"
             className="w-full h-72 mt-3 object-cover"
-            alt="Description of the image"
+            alt="Company showcase"
           />
 
           <img
             src="picture1 (2).jpg"
             className="relative left-12 bottom-60 w-96 h-72 mt-3 object-cover"
-            alt="Description of the image"
+            alt="Company showcase"
           />
         </div>
 
         {/* Text Content */}
         <div className="flex-1 p-11 mt-10">
           <h1 className="font-bold text-4xl mb-10">
-            Engaging New Audiences <br />
-            Through Smart Approach
+            Delivering Excellence Through <br />
+            Innovative Software Solutions
           </h1>
 
-          <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea.
-          </p>
+            <p className="mb-4">
+              Universal Soft Lab has been at the forefront of software innovation for over 18 years. We specialize in developing comprehensive solutions for various industries including banking, healthcare, manufacturing, and cooperative societies. Our extensive experience includes successful collaborations with international clients across the globe.
+            </p>
 
-          <p className="mb-4">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't.
-          </p>
+            <p className="mb-4">
+              Our expertise spans across multiple technologies and platforms, enabling us to deliver robust, scalable, and user-friendly applications that meet the evolving needs of our clients. From desktop applications to mobile apps, we provide end-to-end solutions. We have successfully delivered projects for clients in the USA, UK, Canada, Australia, and various European countries, demonstrating our ability to work across different time zones and cultural contexts.
+            </p>
 
           <button className="bg-orange-500 text-white py-2 px-7 rounded-2xl hover:bg-green-600 focus:outline-none">
             Discover More
@@ -504,87 +832,12 @@ function Home() {
         <div class="relative w-full md:w-1/2 h-96">
           <img
             src="https://bariton-react.envytheme.com/images/woman.jpg"
-            alt="Webinar Image"
+            alt="Webinar"
             class="w-full h-full object-cover shadow-md rounded-lg"
           />
         </div>
       </div>
 
-      {/* fifth-page */}
-      <div class="bg-[#f2f6f9] py-16 px-4 ">
-        <div class="text-center max-w-4xl mx-auto mb-12">
-          <h3 class="text-3xl font-semibold text-gray-800 mb-4">
-            Featured Customers & Partners
-          </h3>
-          <p class="text-lg text-gray-600 mb-8">
-            We’re proud to partner with some of the most innovative and <br />
-            trusted brands around the world. Our collaboration helps us achieve
-            great things together.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap justify-center gap-8">
-          <div class="h-32 w-56 bg-white flex justify-center items-center rounded-lg shadow-lg relative overflow-hidden transition-all duration-300 transform group hover:scale-105 hover:shadow-xl">
-            <img
-              src="partner1.png"
-              alt="Partner 1"
-              class="h-16 w-16 object-contain group-hover:scale-110 transition-all duration-300"
-            />
-
-            <div class="absolute top-0 left-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-
-            <div class="absolute bottom-0 right-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-          </div>
-
-          <div class="h-32 w-56 bg-white flex justify-center items-center rounded-lg shadow-lg relative overflow-hidden transition-all duration-300 transform group hover:scale-105 hover:shadow-xl">
-            <img
-              src="partner2.png"
-              alt="Partner 2"
-              class="h-16 w-16 object-contain group-hover:scale-110 transition-all duration-300"
-            />
-
-            <div class="absolute top-0 left-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-
-            <div class="absolute bottom-0 right-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-          </div>
-
-          <div class="h-32 w-56 bg-white flex justify-center items-center rounded-lg shadow-lg relative overflow-hidden transition-all duration-300 transform group hover:scale-105 hover:shadow-xl">
-            <img
-              src="partner3.png"
-              alt="Partner 3"
-              class="h-16 w-16 object-contain group-hover:scale-110 transition-all duration-300"
-            />
-
-            <div class="absolute top-0 left-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-
-            <div class="absolute bottom-0 right-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-          </div>
-
-          <div class="h-32 w-56 bg-white flex justify-center items-center rounded-lg shadow-lg relative overflow-hidden transition-all duration-300 transform group hover:scale-105 hover:shadow-xl">
-            <img
-              src="partner4.png"
-              alt="Partner 4"
-              class="h-16 w-16 object-contain group-hover:scale-110 transition-all duration-300"
-            />
-
-            <div class="absolute top-0 left-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-
-            <div class="absolute bottom-0 right-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-          </div>
-
-          <div class="h-32 w-56 bg-white flex justify-center items-center rounded-lg shadow-lg relative overflow-hidden transition-all duration-300 transform group hover:scale-105 hover:shadow-xl">
-            <img
-              src="partner5.png"
-              alt="Partner 5"
-              class="h-16 w-16 object-contain group-hover:scale-110 transition-all duration-300"
-            />
-
-            <div class="absolute top-0 left-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-
-            <div class="absolute bottom-0 right-0 w-2 h-0 bg-orange-500 transition-all duration-300 group-hover:h-full"></div>
-          </div>
-        </div>
-      </div>
 
       {/* sixth page  */}
       <div className="relative w-full  ">
@@ -701,7 +954,7 @@ function Home() {
       <div className="flex flex-wrap h-auto">
         {/* Image Section */}
         <div className="w-full sm:w-2/4 bg-black">
-          <img src="picture!.jpg" className="w-full h-full object-cover" />
+          <img src="picture!.jpg" alt="Company office" className="w-full h-full object-cover" />
         </div>
 
         {/* Text Section */}
@@ -739,7 +992,7 @@ function Home() {
         <div className="relative z-10 w-full gap-6 bg-[#15171a] flex pt-24 px-4 sm:px-8 lg:px-16 flex-col sm:flex-row">
           <div className="w-full sm:w-1/3 lg:w-1/4 p-2">
             <div className="flex gap-2">
-              <img src="univarsal_logo.jpeg" className="h-9 w-10 rounded" />
+              <img src="univarsal_logo.jpeg" alt="Universal Soft Lab Logo" className="h-9 w-10 rounded" />
               <h3 className="text-white text-2xl font-bold mb-4">
                 Universal Soft Lab
               </h3>
@@ -840,24 +1093,18 @@ function Home() {
             <div className="space-y-4">
               <ul className="flex items-center space-x-2">
                 <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Address:</span> Victoria,
-                  Canada
+                  <span className="font-semibold">Address:</span> 13, Press Complex, Apni Duniya Press Campus, Behind Dainik Bhaskar, A.B. Road, Indore - 452010
                 </li>
               </ul>
               <ul className="flex items-center space-x-2">
                 <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
                   <span className="font-semibold">Email:</span>{" "}
-                  bariton@gmail.com
+                  info@universalsoftlab.com
                 </li>
               </ul>
               <ul className="flex items-center space-x-2">
                 <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Phone:</span> +44 587 154756
-                </li>
-              </ul>
-              <ul className="flex items-center space-x-2">
-                <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Fax:</span> +44 785 4578964
+                  <span className="font-semibold">Phone:</span> +91 83588 111 00
                 </li>
               </ul>
             </div>
@@ -867,7 +1114,7 @@ function Home() {
 
       <div className="bg-black text-white p-4 flex flex-col sm:flex-row justify-between items-center">
         <div className="mb-4 sm:mb-0">
-          <p>&#169; 2025 Bariton. All Rights Reserved EnvyTheme.</p>
+          <p>&#169; 2007 Universal Soft Lab. All Rights Reserved</p>
         </div>
         <div>
           <p>

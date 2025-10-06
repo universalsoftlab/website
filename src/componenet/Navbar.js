@@ -56,7 +56,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               {/* Logo */}
-              <img src="univarsal_logo.jpeg" className="h-11 w-15 rounded" />
+              <img src="univarsal_logo.jpeg" alt="Universal Soft Lab Logo" className="h-11 w-15 rounded" />
               <div className="text-white text-2xl font-bold ml-3">
                 Universal Soft Lab
               </div>
@@ -95,7 +95,7 @@ const Navbar = () => {
               >
                 Product
               </a>
-              <a href="#" className="text-white text-lg hover:text-orange-500">
+              <a href="/contact" className="text-white text-lg hover:text-orange-500">
                 Contact
               </a>
             </div>

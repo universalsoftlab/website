@@ -15,7 +15,7 @@ const Footer = ()=>{
         <div className="relative z-10 w-full gap-6 bg-[#15171a] flex pt-24 px-4 sm:px-8 lg:px-16 flex-col sm:flex-row">
           <div className="w-full sm:w-1/3 lg:w-1/4 p-2">
             <div className="flex gap-2">
-              <img src="univarsal_logo.jpeg" className="h-9 w-10 rounded" />
+              <img src="univarsal_logo.jpeg" alt="Universal Soft Lab Logo" className="h-9 w-10 rounded" />
               <h3 className="text-white text-2xl font-bold mb-4">
                 Universal Soft Lab
               </h3>
@@ -116,19 +116,18 @@ const Footer = ()=>{
             <div className="space-y-4">
               <ul className="flex items-center space-x-2">
                 <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Address:</span> Victoria,
-                  Canada
+                  <span className="font-semibold">Address:</span> 13, Press Complex, Apni Duniya Press Campus, Behind Dainik Bhaskar, A.B. Road, Indore - 452010
                 </li>
               </ul>
               <ul className="flex items-center space-x-2">
                 <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
                   <span className="font-semibold">Email:</span>{" "}
-                  bariton@gmail.com
+                  info@universalsoftlab.com
                 </li>
               </ul>
               <ul className="flex items-center space-x-2">
                 <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Phone:</span> +44 587 154756
+                  <span className="font-semibold">Phone:</span> +91 83588 111 00
                 </li>
               </ul>
               <ul className="flex items-center space-x-2">
