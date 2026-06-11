@@ -104,6 +104,7 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name: formData.name,
           to: "info@universalsoftlab.com",
           from: formData.email,
           subject: `Contact Form Submission: ${formData.subject}`,

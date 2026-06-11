@@ -58,7 +58,7 @@ app.get('/captcha', (req, res) => {
 // Email API endpoint
 app.post('/send-email', async (req, res) => {
   try {
-    const { to, from, subject, message, captchaAnswer, captchaToken } = req.body;
+    const { name, to, from, subject, message, captchaAnswer, captchaToken } = req.body;
 
     // Verify Captcha
     if (!captchaToken || !captchaAnswer) {
@@ -120,7 +120,7 @@ app.post('/send-email', async (req, res) => {
           <div style="padding: 30px; background-color: #f9f9f9;">
             <h2 style="color: #333; margin-top: 0;">Thank You for Contacting Us!</h2>
             
-            <p>Dear Valued Customer,</p>
+            <p>Dear ${name || 'Valued Customer'},</p>
             
             <p>Thank you for reaching out to Universal Soft Lab. We have received your message and appreciate your interest in our services.</p>
             
