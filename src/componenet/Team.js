@@ -38,7 +38,7 @@ function Team() {
     {
       name: "Naveen Raw",
       position: "Senior Mobile Engineer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+      image: "/images/professional-headshot-naveen.png",
       bio: "Lead mobile developer with extensive experience building React Native and Flutter portals. Expert in local database caching, offline synchronization, and native component integration.",
       skills: ["React Native", "Flutter", "Mobile Architecture", "Offline Caching", "API Sync"],
       social: {
