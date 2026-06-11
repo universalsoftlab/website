@@ -47,20 +47,20 @@ function Team() {
       }
     },
     {
-      name: "Narayan Rawat",
+      name: "Deepanshu",
       position: "Senior Mobile & Frontend Developer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop",
+      image: "/images/deepanshu.png",
       bio: "Frontend and mobile specialist with deep expertise in cross-platform UI rendering, state management pipelines, and robust responsive layouts.",
       skills: ["React", "Flutter", "TypeScript", "Redux Toolkit", "Responsive Design"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
-        email: "narayan@universalsoftlab.com"
+        email: "deepanshu@universalsoftlab.com"
       }
     },
     {
       name: "Kunal Awarekar",
       position: "Full-Stack C# / SQL Engineer",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop",
+      image: "/images/kunal.jpeg",
       bio: "Full-stack engineer specializing in modern .NET Core backends, database procedures, and React portal configurations.",
       skills: ["C#", "ASP.NET Core", "SQL Server", "Web APIs", "React"],
       social: {
@@ -71,7 +71,7 @@ function Team() {
     {
       name: "Shivani Yadav",
       position: "Software Developer",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
+      image: "/images/shivani.png",
       bio: "Backend developer focusing on relational data schemas, index tuning, integration scripting, and SQL reporting query design.",
       skills: ["PostgreSQL", "SQL Server", "Stored Procedures", "Data Migration", "C#"],
       social: {
@@ -80,25 +80,25 @@ function Team() {
       }
     },
     {
-      name: "Senior UI/UX Designer",
-      position: "UI/UX & Prototyping Lead",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+      name: "Prachi Chobey",
+      position: "Senior UI/UX Designer",
+      image: "/images/Prachi.png",
       bio: "Creates visual design systems, wireframes, and click-through interactive prototypes in Figma, mapping seamless user journeys.",
       skills: ["Figma UI/UX", "Wireframing", "Interactive Prototypes", "Design Systems", "User Journeys"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
-        email: "info@universalsoftlab.com"
+        email: "prachi@universalsoftlab.com"
       }
     },
     {
-      name: "Senior QA Automation Engineer",
-      position: "QA Lead",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop",
-      bio: "Maintains code stability and checks regression vulnerabilities through unit, integration, and API test suites with Jest and Vitest.",
-      skills: ["Test Automation", "Jest / Vitest", "API Testing", "CI/CD Auditing", "Regression Testing"],
+      name: "Rahul",
+      position: "Marketing & Growth Lead",
+      image: "/images/Rahul.png",
+      bio: "Lead marketing and business growth strategist. Specializes in client acquisition, brand development, marketing campaigns, and technology partnership management.",
+      skills: ["Digital Marketing", "Growth Strategy", "Lead Generation", "Client Acquisition", "Brand Strategy"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
-        email: "info@universalsoftlab.com"
+        email: "rahul@universalsoftlab.com"
       }
     }
   ];
