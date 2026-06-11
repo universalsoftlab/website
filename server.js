@@ -2,33 +2,97 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
+const crypto = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+
+// Secret key for captcha signature, regenerated on server restart
+const CAPTCHA_SECRET = crypto.randomBytes(32).toString('hex');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
-// Email configuration
+// Email configuration: secure SMTP server using cPanel webmail
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // You can use other services like 'outlook', 'yahoo', etc.
+  host: 'mail.universalsoftlab.com',
+  port: 465,
+  secure: true, // true for port 465 (SSL/TLS)
   auth: {
     user: 'info@universalsoftlab.com',
-    pass: 'USL_INFO*1234#*#' // In production, use environment variables
+    pass: 'USL_INFO*1234#*#'
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+
+// Generate Math Captcha Challenge
+app.get('/captcha', (req, res) => {
+  try {
+    const num1 = Math.floor(Math.random() * 9) + 1; // 1-9
+    const num2 = Math.floor(Math.random() * 9) + 1; // 1-9
+    const sum = num1 + num2;
+    
+    // Expires in 5 minutes
+    const expiry = Date.now() + 5 * 60 * 1000;
+    const payload = `${sum}:${expiry}`;
+    
+    // Sign the payload
+    const hmac = crypto.createHmac('sha256', CAPTCHA_SECRET).update(payload).digest('hex');
+    const token = `${payload}:${hmac}`;
+    
+    res.json({
+      success: true,
+      question: `What is ${num1} + ${num2}?`,
+      token
+    });
+  } catch (error) {
+    console.error('Error generating captcha:', error);
+    res.status(500).json({ success: false, message: 'Failed to generate captcha' });
   }
 });
 
 // Email API endpoint
-app.post('/api/send-email', async (req, res) => {
+app.post('/send-email', async (req, res) => {
   try {
-    const { to, from, subject, message } = req.body;
+    const { to, from, subject, message, captchaAnswer, captchaToken } = req.body;
 
-    // Email to company
+    // Verify Captcha
+    if (!captchaToken || !captchaAnswer) {
+      return res.status(400).json({ success: false, message: 'Captcha verification is required.' });
+    }
+    
+    const parts = captchaToken.split(':');
+    if (parts.length !== 3) {
+      return res.status(400).json({ success: false, message: 'Invalid captcha token structure.' });
+    }
+    
+    const [sumStr, expiryStr, hmac] = parts;
+    
+    // Re-verify HMAC signature
+    const payload = `${sumStr}:${expiryStr}`;
+    const expectedHmac = crypto.createHmac('sha256', CAPTCHA_SECRET).update(payload).digest('hex');
+    if (hmac !== expectedHmac) {
+      return res.status(400).json({ success: false, message: 'Captcha validation failed (signature mismatch).' });
+    }
+    
+    // Verify Expiry
+    if (Date.now() > parseInt(expiryStr)) {
+      return res.status(400).json({ success: false, message: 'Captcha challenge has expired. Please reload the captcha.' });
+    }
+    
+    // Verify Answer
+    if (parseInt(captchaAnswer) !== parseInt(sumStr)) {
+      return res.status(400).json({ success: false, message: 'Incorrect captcha answer. Please try again.' });
+    }
+
+    // Email to company (recipient changed to hemant@universalsoftlab.com)
     const companyMailOptions = {
       from: 'info@universalsoftlab.com',
-      to: 'info@universalsoftlab.com',
+      to: 'hemant@universalsoftlab.com',
       subject: `Contact Form: ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -64,25 +128,24 @@ app.post('/api/send-email', async (req, res) => {
             <ul>
               <li>Our team will review your inquiry within 24 hours</li>
               <li>We'll contact you back shortly to discuss your requirements</li>
-              <li>If urgent, please call us at +91 9876543210</li>
+              <li>If urgent, please call us at +91 83588 111 00</li>
             </ul>
             
             <p><strong>About Universal Soft Lab:</strong></p>
-            <p>With 18+ years of experience in software development, we specialize in:</p>
+            <p>With 22+ years of experience in software development, we specialize in:</p>
             <ul>
-              <li>Desktop Applications (C#, .NET)</li>
-              <li>Web Development (React, MVC, CodeIgniter)</li>
+              <li>Product Discovery & UI/UX Design</li>
+              <li>Web Application Development (React, .NET, Node.js)</li>
               <li>Mobile Applications (React Native, Flutter)</li>
-              <li>Database Solutions (MSSQL, PostgreSQL, MongoDB)</li>
-              <li>Banking & Finance Software</li>
-              <li>ERP Solutions</li>
-              <li>Hospital Management Systems</li>
+              <li>Database Engineering & Performance Tuning (PostgreSQL, SQL Server)</li>
+              <li>Legacy Modernization (WinForms to React)</li>
+              <li>QA Automation & Testing</li>
             </ul>
             
             <div style="background-color: #fff; padding: 20px; border-left: 4px solid #ff4d01; margin: 20px 0;">
               <h3 style="color: #ff4d01; margin-top: 0;">Our Contact Information:</h3>
               <p><strong>Address:</strong> 13, Press Complex, Apni Duniya Press Campus, Behind Dainik Bhaskar, A.B. Road, Indore - 452010</p>
-              <p><strong>Phone:</strong> +91 9876543210</p>
+              <p><strong>Phone:</strong> +91 83588 111 00</p>
               <p><strong>Email:</strong> info@universalsoftlab.com</p>
               <p><strong>Business Hours:</strong> Monday-Friday: 9:00 AM - 6:00 PM, Saturday: 9:00 AM - 2:00 PM</p>
             </div>
@@ -109,7 +172,10 @@ app.post('/api/send-email', async (req, res) => {
     res.json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ success: false, message: 'Failed to send email' });
+    res.status(500).json({ 
+      success: false, 
+      message: `Failed to send email: ${error.message || error}` 
+    });
   }
 });
 

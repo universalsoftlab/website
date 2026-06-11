@@ -1,196 +1,171 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { FaBars, FaTimes, FaComments } from "react-icons/fa";
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  ;
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle menu visibility
-
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      // When the page is scrolled more than 50px, change navbar styles
-      if (window.scrollY > 50) {
+      if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
-
-    // Listen to the scroll event
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  window.addEventListener("scroll", handleScroll);
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Case Studies", path: "/products" },
+    { name: "Team", path: "/team" },
+    { name: "Gallery", path: "/gallery" },
+  ];
+
   return (
-    <div
-      style={{
-        backgroundImage:
-          'url("https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-      }}
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800/80 shadow-xl py-3"
+          : "bg-transparent py-5"
+      }`}
     >
-      {/* Navbar */}
-      <nav
-        className={`${
-          scrolled ? "bg-white shadow-md text-black" : "bg-black bg-opacity-50"
-        } fixed top-0 left-0 w-full z-10 transition-all duration-300`}
-        style={{
-          backdropFilter: scrolled ? "none" : "blur(5px)", // Optional blur effect when navbar is transparent
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              {/* Logo */}
-              <img src="univarsal_logo.jpeg" alt="Universal Soft Lab Logo" className="h-11 w-15 rounded" />
-              <div className="text-white text-2xl font-bold ml-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14">
+          {/* Logo & Brand */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="univarsal_logo.png"
+              alt="Universal Soft Lab Logo"
+              className="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+            />
+            <div className="flex flex-col">
+              <span className="text-white text-xl font-bold tracking-tight font-sans group-hover:text-gray-100 transition-colors">
                 Universal Soft Lab
-              </div>
+              </span>
+              <span className="text-[10px] text-gray-400 group-hover:text-[#ff4d01] tracking-wider uppercase font-medium transition-colors">
+                Product Engineering
+              </span>
             </div>
+          </Link>
 
-            {/* Hamburger Icon for mobile */}
-            <div className="md:hidden flex items-center">
-              <button
-                className="text-white text-2xl mr-5" // Add right margin here
-                onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu on click
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-300 ${
+                  isActive(link.path)
+                    ? "text-[#ff4d01]"
+                    : "text-gray-300 hover:text-white"
+                }`}
               >
-                {isMenuOpen ? <FaTimes /> : <FaBars />}
-              </button>
-            </div>
+                {link.name}
+                {isActive(link.path) && (
+                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#ff4d01] rounded-full"></span>
+                )}
+              </Link>
+            ))}
+          </div>
 
-            {/* Navbar Links for Larger Screens */}
-            <div className="hidden md:flex space-x-8 ">
-              <a href="/" className="text-white text-lg hover:text-orange-500">
-                Home
-              </a>
-              <a
-                href="/about"
-                className="text-white text-lg hover:text-orange-500"
-              >
-                About
-              </a>
-              <a
-                href="/services"
-                className="text-white text-lg hover:text-orange-500"
-              >
-                Services
-              </a>
-              <a
-                href="/contact"
-                className="text-white text-lg hover:text-orange-500"
-              >
-                Product
-              </a>
-              <a href="/contact" className="text-white text-lg hover:text-orange-500">
-                Contact
-              </a>
-            </div>
+          {/* CTA Consultation Button */}
+          <div className="hidden md:block">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-[#ff4d01] hover:bg-[#ff5d1a] text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-[#ff4d01]/10 hover:shadow-[#ff4d01]/20 transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              <FaComments />
+              <span>Let's Talk</span>
+            </Link>
+          </div>
+
+          {/* Mobile Menu Icon */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-400 hover:text-white p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff4d01]/50"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Sliding Drawer Overlay */}
+      {isMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Navigation Drawer */}
       <div
-        className={`${
-          isMenuOpen ? "block" : "hidden"
-        } md:hidden fixed inset-0 bg-black bg-opacity-70 z-20 flex justify-start items-center px-4 py-10 transition-all duration-300`}
+        className={`md:hidden fixed top-0 right-0 h-screen w-72 bg-[#0d1321] border-l border-gray-800 shadow-2xl z-50 p-6 flex flex-col justify-between transition-transform duration-300 ease-in-out transform ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <div className="w-64 relative bottom-72  bg-black p-4 space-y-6 text-white">
-          <a href="/" className="text-lg hover:text-orange-500 block py-2">
-            Home
-          </a>
-          <a href="/about" className="text-lg hover:text-orange-500 block py-2">
-            About
-          </a>
-          <a
-            href="/services"
-            className="text-lg hover:text-orange-500 block py-2"
+        <div>
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-800">
+            <div className="flex items-center gap-2">
+              <img
+                src="univarsal_logo.png"
+                alt="Universal Soft Lab Logo"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="text-white font-bold text-lg">USL Menu</span>
+            </div>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-400 hover:text-white p-1 rounded-lg focus:outline-none"
+            >
+              <FaTimes size={20} />
+            </button>
+          </div>
+
+          <div className="flex flex-col space-y-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`px-4 py-3 rounded-lg text-base font-medium transition-all ${
+                  isActive(link.path)
+                    ? "bg-[#ff4d01]/10 text-[#ff4d01]"
+                    : "text-gray-300 hover:bg-gray-800/40 hover:text-white"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="pt-6 border-t border-gray-800 space-y-4">
+          <Link
+            to="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#ff4d01] hover:bg-[#ff5d1a] text-white py-3 rounded-lg text-sm font-semibold shadow-lg transition-all"
           >
-            Services
-          </a>
-          <a
-            href="/contact"
-            className="text-lg hover:text-orange-500 block py-2"
-          >
-            Product
-          </a>
-          <a href="/Contect" className="text-lg hover:text-orange-500 block py-2">
-            Contact
-          </a>
+            <FaComments />
+            <span>Schedule Call</span>
+          </Link>
         </div>
       </div>
-
-      {/* Main Content */}
-      <div className="pt-32">
-        <h1 className="text-white text-6xl ml-36">
-          World’s Leading Machine Learning Company
-        </h1>
-        <p className="text-white mt-8 ml-36">
-          ML today are able to supply needful of help, information, and positive
-          experience of maintaining intimacy with customers. Eventually, chatbot
-          ideas bring a pleasant experience of all these qualities into the
-          conversation.
-        </p>
-      </div>
-
-      {/* Three Boxes */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-28 px-6">
-        {/* Box 1 */}
-        <div className="relative group hover:shadow-lg rounded overflow-hidden mb-5">
-          <div className="absolute inset-0 bg-[#ff4d01] transition-all duration-500 group-hover:w-full w-0"></div>
-          <div className="text-white p-5 relative z-10">
-            <h3 className="text-2xl">
-              Robotic Process <br /> Automation
-            </h3>
-            <p className="mt-3">
-              Lorem ipsum dolor consectetur <br /> adipiscing elit, sed do
-              eiusmod <br /> tempor incididunt ut labore. <br /> Ut enim ad
-              minim veniam.
-            </p>
-          </div>
-        </div>
-
-        {/* Box 2 */}
-        <div className="relative group hover:shadow-lg rounded overflow-hidden mb-5">
-          <div className="absolute inset-0 bg-[#ff4d01] transition-all duration-500 group-hover:w-full w-0"></div>
-          <div className="text-white p-5 relative z-10">
-            <h3 className="text-2xl">Cognitive Automation</h3>
-            <p className="mt-9">
-              Lorem ipsum dolor consectetur <br /> adipiscing elit, sed do
-              eiusmod tempor <br /> incididunt ut labore. Ut enim ad minim{" "}
-              <br /> veniam.
-            </p>
-          </div>
-        </div>
-
-        {/* Box 3 */}
-        <div className="relative group hover:shadow-lg rounded overflow-hidden mb-5">
-          <div className="absolute inset-0 bg-[#ff4d01] transition-all duration-500 group-hover:w-full w-0"></div>
-          <div className="text-white p-5 relative z-10">
-            <h3 className="text-2xl">Cognitive Engagement</h3>
-            <p className="mt-9">
-              Lorem ipsum dolor consectetur <br /> adipiscing elit, sed do
-              eiusmod tempor <br /> incididunt ut labore. Ut enim ad minim{" "}
-              <br /> veniam.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </nav>
   );
 };
+
 export default Navbar;

@@ -1,161 +1,205 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaGlobe,
+} from "react-icons/fa";
 
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
-
-const Footer = ()=>{
-    return (<>
-      <div
-        style={{
-          backgroundImage: 'url("images1.jpg")',
-          backgroundSize: "40%",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          minHeight: "45vh",
-        }}
-      >
-        <div className="relative z-10 w-full gap-6 bg-[#15171a] flex pt-24 px-4 sm:px-8 lg:px-16 flex-col sm:flex-row">
-          <div className="w-full sm:w-1/3 lg:w-1/4 p-2">
-            <div className="flex gap-2">
-              <img src="univarsal_logo.jpeg" alt="Universal Soft Lab Logo" className="h-9 w-10 rounded" />
-              <h3 className="text-white text-2xl font-bold mb-4">
+const Footer = () => {
+  return (
+    <footer className="bg-[#070a13] border-t border-gray-800 text-gray-400">
+      {/* Upper Footer section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <img
+                src="univarsal_logo.png"
+                alt="Universal Soft Lab Logo"
+                className="h-12 w-auto object-contain"
+              />
+              <span className="text-white text-xl font-bold font-sans">
                 Universal Soft Lab
-              </h3>
+              </span>
             </div>
-            <p className="text-white mt-3">
-              Lorem ipsum dolor sit amet,
-              <br /> consectetur adipiscing elit, <br />
-              sed do eiusmod tempor incididunt <br />
-              ut labore et dolore magna aliqua.
-              <br /> Ut enim ad minim veniam,
-              <br /> quis nostrud.
+            <p className="text-sm leading-relaxed">
+              Custom software development and product engineering agency. We design, build, optimize, and modernize high-performance web, mobile, and cloud systems for businesses worldwide.
             </p>
-            <div className="flex gap-5 text-white mt-5">
+            <div className="flex gap-4">
+              <a
+                href="https://www.linkedin.com/company/universal-soft-lab/about/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-[#ff4d01] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300"
+              >
+                <FaLinkedinIn size={18} />
+              </a>
               <a
                 href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Facebook"
-                className="hover:text-orange-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-[#ff4d01] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300"
               >
-                <FaFacebook size={30} />
+                <FaFacebook size={18} />
               </a>
               <a
                 href="https://twitter.com"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Twitter"
-                className="hover:text-orange-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-[#ff4d01] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300"
               >
-                <FaTwitter size={30} />
+                <FaTwitter size={18} />
               </a>
               <a
                 href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Instagram"
-                className="hover:text-orange-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-[#ff4d01] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300"
               >
-                <FaInstagram size={30} />
-              </a>
-              <a
-                href="https://youtube.com"
-                aria-label="YouTube"
-                className="hover:text-orange-500 transition-colors duration-300"
-              >
-                <FaYoutube size={30} />
+                <FaInstagram size={18} />
               </a>
             </div>
           </div>
 
-          {/* Services Section */}
-          <div className="text-white mt-8 sm:mt-0 sm:w-1/4 lg:w-1/4">
-            <h3 className="font-bold text-2xl w-12 mb-5 mt-2 border-b-4 border-orange-500 pb-2">
-              Services
+          {/* Core Focus Areas */}
+          <div>
+            <h3 className="text-white text-base font-bold tracking-wider uppercase mb-6 relative">
+              Core Capabilities
+              <span className="absolute bottom-[-8px] left-0 w-8 h-[3px] bg-[#ff4d01] rounded-full"></span>
             </h3>
-            <ul className="list-none p-0 space-y-4">
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/product-engineering">Product Engineering</a>
+            <ul className="space-y-3.5 text-sm">
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Product Discovery & Design
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/ux-ui-design">UX/UI Design</a>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Web Applications (React, .NET)
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/big-data-analysis">Big Data Analysis</a>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Mobile Apps (Flutter, React Native)
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/desktop-applications">Desktop Applications</a>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Database Optimization (PostgreSQL)
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/mobile-applications">Mobile Applications</a>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Legacy WinForms Modernization
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Quick Links Section */}
-          <div className="text-white mt-8 sm:mt-0 sm:w-1/4 lg:w-1/4">
-            <h3 className="font-bold text-2xl w-11 mb-5 mt-1 border-b-4 border-orange-500 pb-2">
-              Links
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white text-base font-bold tracking-wider uppercase mb-6 relative">
+              Quick Links
+              <span className="absolute bottom-[-8px] left-0 w-8 h-[3px] bg-[#ff4d01] rounded-full"></span>
             </h3>
-            <ul className="list-none p-0 space-y-4">
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/product-engineering"> About Us</a>
+            <ul className="space-y-3.5 text-sm">
+              <li>
+                <Link to="/" className="hover:text-white transition-colors">
+                  Home Overview
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/ux-ui-design"> Blog</a>
+              <li>
+                <Link to="/about" className="hover:text-white transition-colors">
+                  About Agency
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/big-data-analysis">Contact</a>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Service Offerings
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/desktop-applications"> Services</a>
+              <li>
+                <Link to="/products" className="hover:text-white transition-colors">
+                  Case Studies Portfolio
+                </Link>
               </li>
-              <li className="hover:text-orange-500 hover:cursor-pointer">
-                <a href="/mobile-applications">Pricing</a>
+              <li>
+                <Link to="/team" className="hover:text-white transition-colors">
+                  Our Engineering Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-white transition-colors">
+                  Get in Touch
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contacts Section */}
-          <div className="text-white mt-8 sm:mt-0 sm:w-1/4 lg:w-1/4">
-            <h3 className="font-bold text-2xl w-12 mb-5 mt-2 border-b-4 border-orange-500 pb-2">
-              Contacts
+          {/* Contact Details */}
+          <div>
+            <h3 className="text-white text-base font-bold tracking-wider uppercase mb-6 relative">
+              Office Details
+              <span className="absolute bottom-[-8px] left-0 w-8 h-[3px] bg-[#ff4d01] rounded-full"></span>
             </h3>
-            <div className="space-y-4">
-              <ul className="flex items-center space-x-2">
-                <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Address:</span> 13, Press Complex, Apni Duniya Press Campus, Behind Dainik Bhaskar, A.B. Road, Indore - 452010
-                </li>
-              </ul>
-              <ul className="flex items-center space-x-2">
-                <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Email:</span>{" "}
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-[#ff4d01] mt-1 flex-shrink-0" />
+                <span className="leading-relaxed">
+                  13, Press Complex, Apni Duniya Press Campus, Behind Dainik Bhaskar, A.B. Road, Indore - 452010, M.P.
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FaPhoneAlt className="text-[#ff4d01] flex-shrink-0" />
+                <span>+91 83588 111 00</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FaEnvelope className="text-[#ff4d01] flex-shrink-0" />
+                <a
+                  href="mailto:info@universalsoftlab.com"
+                  className="hover:text-white transition-colors"
+                >
                   info@universalsoftlab.com
-                </li>
-              </ul>
-              <ul className="flex items-center space-x-2">
-                <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Phone:</span> +91 83588 111 00
-                </li>
-              </ul>
-              <ul className="flex items-center space-x-2">
-                <li className="hover:text-orange-500 hover:cursor-pointer transition-colors duration-300">
-                  <span className="font-semibold">Fax:</span> +44 785 4578964
-                </li>
-              </ul>
-            </div>
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <FaGlobe className="text-[#ff4d01] flex-shrink-0" />
+                <span>www.universalsoftlab.com</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div className="bg-black text-white p-4 flex flex-col sm:flex-row justify-between items-center">
-        <div className="mb-4 sm:mb-0">
-          <p>&#169; 2025 Bariton. All Rights Reserved EnvyTheme.</p>
-        </div>
-        <div>
-          <p>
-            <a href="/privacy-policy" className="hover:text-orange-500">
+      {/* Lower Footer (Copyrights) */}
+      <div className="bg-[#04060b] border-t border-gray-900/60 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <p className="text-center md:text-left">
+            &copy; 2026 Universal Soft Lab. Technology division of Universal Tradecom Pvt. Ltd. All Rights Reserved.
+          </p>
+          <div className="flex gap-6">
+            <a href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <span className="mx-2">|</span>
-            <a href="/terms-conditions" className="hover:text-orange-500">
+            <a href="/terms" className="hover:text-white transition-colors">
               Terms & Conditions
             </a>
-          </p>
+          </div>
         </div>
-      </div></>
-    )
-}
-export default Footer ;
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
