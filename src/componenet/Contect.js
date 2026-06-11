@@ -205,8 +205,7 @@ const Contact = () => {
                   <div className="space-y-1">
                     <span className="text-white font-bold block text-sm">Business Schedule</span>
                     <p className="text-gray-400 text-xs sm:text-sm">
-                      Monday - Friday: 10:00 AM - 7:00 PM <br />
-                      Saturday: Closed
+                      Monday - Friday: 10:00 AM - 7:00 PM
                     </p>
                   </div>
                 </div>

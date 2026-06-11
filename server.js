@@ -147,7 +147,7 @@ app.post('/send-email', async (req, res) => {
               <p><strong>Address:</strong> 13, Press Complex, Apni Duniya Press Campus, Behind Dainik Bhaskar, A.B. Road, Indore - 452010</p>
               <p><strong>Phone:</strong> +91 83588 111 00</p>
               <p><strong>Email:</strong> info@universalsoftlab.com</p>
-              <p><strong>Business Hours:</strong> Monday-Friday: 10:00 AM - 7:00 PM, Saturday: Closed</p>
+              <p><strong>Business Hours:</strong> Monday-Friday: 10:00 AM - 7:00 PM</p>
             </div>
             
             <p>We look forward to working with you!</p>
