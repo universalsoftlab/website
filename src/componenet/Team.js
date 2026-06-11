@@ -16,7 +16,7 @@ function Team() {
     {
       name: "Hemant Mehta",
       position: "Founder & Solution Architect",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+      image: "/images/professional-headshot-suit-2.png",
       bio: "22+ years of technology leadership and enterprise software design. Architected complex loan systems, cotton mill ERP platforms, and custom databases. Deep specialist in C#, .NET Core, SQL Server, and query plan performance tuning.",
       skills: ["Software Architecture", "C# & .NET Core", "SQL Server Optimization", "API Design", "Legacy Modernization"],
       social: {

@@ -85,29 +85,38 @@ function About() {
             </div>
 
             {/* Visual block */}
-            <div className="lg:col-span-5">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4d01]/10 to-indigo-600/10 rounded-2xl filter blur-xl pointer-events-none"></div>
-                <div className="relative rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden shadow-2xl p-6 sm:p-8 space-y-6">
-                  <h3 className="text-lg font-bold text-white mb-2">Our Engineering Core</h3>
-                  <div className="space-y-4 text-xs font-sans text-gray-400">
-                    <div className="flex items-center gap-3">
-                      <FaCode className="text-[#ff4d01] text-lg" />
-                      <span>React, Flutter, React Native, C# (.NET Core), Golang</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <FaServer className="text-[#ff4d01] text-lg" />
-                      <span>PostgreSQL, SQL Server, MongoDB, Query Optimization</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <FaMobileAlt className="text-[#ff4d01] text-lg" />
-                      <span>Cloud APIs, AWS Infrastructure, CI/CD pipelines</span>
-                    </div>
+            <div className="lg:col-span-5 space-y-6">
+              {/* Founder Photo */}
+              <div className="relative rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden shadow-2xl group">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img 
+                    src="/images/professional-fullbody-solo.png" 
+                    alt="Hemant Mehta - Founder & Senior Architect" 
+                    className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="text-[#ff4d01] text-xs font-bold uppercase tracking-wider block mb-1">Founder & Lead Architect</span>
+                  <h3 className="text-xl font-bold text-white">Hemant Mehta</h3>
+                </div>
+              </div>
+
+              {/* Engineering Core Card */}
+              <div className="relative rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden shadow-2xl p-6 space-y-4">
+                <h3 className="text-md font-bold text-white">Our Engineering Core</h3>
+                <div className="space-y-3 text-xs font-sans text-gray-400">
+                  <div className="flex items-center gap-3">
+                    <FaCode className="text-[#ff4d01] text-md" />
+                    <span>React, Flutter, React Native, C# (.NET Core), Golang</span>
                   </div>
-                  <div className="pt-4 border-t border-gray-900">
-                    <p className="text-xs text-gray-500 italic">
-                      "We translate enterprise domain knowledge into clean, modern code templates."
-                    </p>
+                  <div className="flex items-center gap-3">
+                    <FaServer className="text-[#ff4d01] text-md" />
+                    <span>PostgreSQL, SQL Server, MongoDB, Query Optimization</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <FaMobileAlt className="text-[#ff4d01] text-md" />
+                    <span>Cloud APIs, AWS Infrastructure, CI/CD pipelines</span>
                   </div>
                 </div>
               </div>
