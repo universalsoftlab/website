@@ -37,7 +37,7 @@ function Team() {
     },
     {
       name: "Naveen Raw",
-      position: "Senior Mobile Engineer",
+      position: "Team Lead & Senior Mobile Engineer",
       image: "/images/professional-headshot-naveen.png",
       bio: "Lead mobile developer with extensive experience building React Native and Flutter portals. Expert in local database caching, offline synchronization, and native component integration.",
       skills: ["React Native", "Flutter", "Mobile Architecture", "Offline Caching", "API Sync"],
