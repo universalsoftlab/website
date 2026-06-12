@@ -169,7 +169,7 @@ function Gallery() {
       category: "projects",
       title: "Loan Processing Portal",
       description: "Client presentation dashboard of our COSMOS credit society platform.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
+      image: "/images/gallery/loan-portal.png",
       date: "2025"
     },
     {
@@ -177,7 +177,7 @@ function Gallery() {
       category: "projects",
       title: "Hospital Management Dashboard",
       description: "Live billing tracking and calendar logs implementation view.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=600&auto=format&fit=crop",
+      image: "/images/gallery/hospital-dashboard.png",
       date: "2025"
     },
 
