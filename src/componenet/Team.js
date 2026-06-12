@@ -27,11 +27,11 @@ function Team() {
     },
     {
       name: "Priya Shivhare",
-      position: "Director & Strategy Lead",
+      position: "HR Manager",
       image: "/images/priya.png",
       objectPosition: "center center",
-      bio: "22+ years of experience in technical planning, business strategy, and delivery management. Directs client alignment, scope sizing, and project governance for all international accounts.",
-      skills: ["Product Strategy", "Project Governance", "Requirement Mapping", "Client Relations", "Startup Advisory"],
+      bio: "Experienced Human Resources professional managing organizational development, recruitment strategy, and employee engagement. Oversees team alignment, project administration, and operational policy implementation.",
+      skills: ["Talent Acquisition", "Employee Relations", "Team Alignment", "HR Operations", "Performance Management"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
         email: "priya@universalsoftlab.com"
