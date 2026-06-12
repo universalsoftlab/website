@@ -75,11 +75,11 @@ function Team() {
     },
     {
       name: "Shivani Yadav",
-      position: "Software Developer",
+      position: "QA Automation & Testing Engineer",
       image: "/images/shivani.png",
       objectPosition: "center 20%",
-      bio: "Backend developer focusing on relational data schemas, index tuning, integration scripting, and SQL reporting query design.",
-      skills: ["PostgreSQL", "SQL Server", "Stored Procedures", "Data Migration", "C#"],
+      bio: "Quality assurance specialist focusing on automated test suites, end-to-end workflows, API verification, and regression testing to ensure software performance and release quality.",
+      skills: ["Test Automation", "Jest & Cypress", "E2E Testing", "Regression Testing", "API Testing"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
         email: "shivani@universalsoftlab.com"
