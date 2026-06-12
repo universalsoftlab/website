@@ -27,16 +27,16 @@ function Gallery() {
       id: 1,
       category: "office",
       title: "Indore Engineering Lab",
-      description: "Collaborative and focused workspace built for high-performance development.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop",
+      description: "Our core development office space in Indore, customized for team collaboration.",
+      image: "/images/gallery/office-desks.jpeg",
       date: "2026"
     },
     {
       id: 2,
       category: "team",
-      title: "Sprint Planning Session",
-      description: "Our core developers alignment check mapping SaaS product dependencies.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop",
+      title: "Team Inauguration Ceremony",
+      description: "Our squad celebrating the opening of our new engineering block.",
+      image: "/images/gallery/inauguration-ceremony.jpeg",
       date: "2026"
     },
     {
@@ -50,18 +50,18 @@ function Gallery() {
     {
       id: 4,
       category: "office",
-      title: "Scrum Daily Checkpoints",
-      description: "Virtual and physical huddle areas designed to synchronize tasks.",
-      image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=600&auto=format&fit=crop",
+      title: "Developer Workstations",
+      description: "Ergonomic workspace layouts built for high-performance coding.",
+      image: "/images/gallery/developer-workspace.jpeg",
       date: "2026"
     },
     {
       id: 5,
       category: "team",
-      title: "Annual Strategy Huddle",
-      description: "Our squad reviewing client deployment successes and feedback.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop",
-      date: "2025"
+      title: "Traditional Day Celebration",
+      description: "The boutique team during an office celebration event.",
+      image: "/images/gallery/team-traditional.jpeg",
+      date: "2026"
     },
     {
       id: 6,
@@ -86,6 +86,38 @@ function Gallery() {
       description: "Recognitions received for quality database architectures.",
       image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=600&auto=format&fit=crop",
       date: "2025"
+    },
+    {
+      id: 9,
+      category: "office",
+      title: "Office Reception & Entry",
+      description: "Welcoming entrance lobby at our Indore product engineering lab.",
+      image: "/images/gallery/office-entry.jpeg",
+      date: "2026"
+    },
+    {
+      id: 10,
+      category: "team",
+      title: "Strategic Group Session",
+      description: "Aligning on deliverables and project timelines in the conference huddle.",
+      image: "/images/gallery/team-discussion.jpeg",
+      date: "2026"
+    },
+    {
+      id: 11,
+      category: "office",
+      title: "Collaborative Lounge Area",
+      description: "Comfortable layout designed for virtual daily scrums and brainstorms.",
+      image: "/images/gallery/workspace-lounge.jpeg",
+      date: "2026"
+    },
+    {
+      id: 12,
+      category: "team",
+      title: "Team Dinner & Gathering",
+      description: "Celebrating milestones and project completions outside the office.",
+      image: "/images/gallery/team-gathering.jpeg",
+      date: "2026"
     }
   ];
 
