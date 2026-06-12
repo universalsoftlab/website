@@ -50,7 +50,7 @@ function Team() {
       }
     },
     {
-      name: "Deepanshu",
+      name: "Deepanshu Bhavsar",
       position: "Senior Mobile & Frontend Developer",
       image: "/images/deepanshu.png",
       objectPosition: "center 15%",
@@ -98,7 +98,7 @@ function Team() {
       }
     },
     {
-      name: "Rahul",
+      name: "Rahul Shrivas",
       position: "Marketing & Growth Lead",
       image: "/images/Rahul.png",
       objectPosition: "center 20%",
