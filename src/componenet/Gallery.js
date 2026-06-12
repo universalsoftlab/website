@@ -326,7 +326,7 @@ function Gallery() {
             </div>
             <div className="space-y-2">
               <FaUsers className="text-4xl text-[#ff4d01] mx-auto mb-2" />
-              <span className="text-3xl font-black text-white block">8</span>
+              <span className="text-3xl font-black text-white block">9</span>
               <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider font-sans">Boutique Engineers</span>
             </div>
             <div className="space-y-2">

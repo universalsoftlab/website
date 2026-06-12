@@ -8,7 +8,8 @@ import {
   FaMobileAlt, 
   FaFigma, 
   FaCheckDouble,
-  FaCogs
+  FaCogs,
+  FaCloud
 } from "react-icons/fa";
 
 function Team() {
@@ -53,7 +54,7 @@ function Team() {
       name: "Deepanshu Bhavsar",
       position: "Senior Mobile & Frontend Developer",
       image: "/images/deepanshu.png",
-      objectPosition: "center 15%",
+      objectPosition: "center center",
       bio: "Frontend and mobile specialist with deep expertise in cross-platform UI rendering, state management pipelines, and robust responsive layouts.",
       skills: ["React", "Flutter", "TypeScript", "Redux Toolkit", "Responsive Design"],
       social: {
@@ -65,7 +66,7 @@ function Team() {
       name: "Kunal Awarekar",
       position: "Full-Stack C# / SQL Engineer",
       image: "/images/kunal.jpeg",
-      objectPosition: "center 20%",
+      objectPosition: "center center",
       bio: "Full-stack engineer specializing in modern .NET Core backends, database procedures, and React portal configurations.",
       skills: ["C#", "ASP.NET Core", "SQL Server", "Web APIs", "React"],
       social: {
@@ -77,7 +78,7 @@ function Team() {
       name: "Shivani Yadav",
       position: "QA Automation & Testing Engineer",
       image: "/images/shivani.png",
-      objectPosition: "center 20%",
+      objectPosition: "center center",
       bio: "Quality assurance specialist focusing on automated test suites, end-to-end workflows, API verification, and regression testing to ensure software performance and release quality.",
       skills: ["Test Automation", "Jest & Cypress", "E2E Testing", "Regression Testing", "API Testing"],
       social: {
@@ -89,7 +90,7 @@ function Team() {
       name: "Prachi Chobey",
       position: "Senior UI/UX Designer",
       image: "/images/Prachi.png",
-      objectPosition: "center 15%",
+      objectPosition: "center center",
       bio: "Creates visual design systems, wireframes, and click-through interactive prototypes in Figma, mapping seamless user journeys.",
       skills: ["Figma UI/UX", "Wireframing", "Interactive Prototypes", "Design Systems", "User Journeys"],
       social: {
@@ -101,12 +102,24 @@ function Team() {
       name: "Rahul Shrivas",
       position: "Marketing & Growth Lead",
       image: "/images/Rahul.png",
-      objectPosition: "center 20%",
+      objectPosition: "center center",
       bio: "Lead marketing and business growth strategist. Specializes in client acquisition, brand development, marketing campaigns, and technology partnership management.",
       skills: ["Digital Marketing", "Growth Strategy", "Lead Generation", "Client Acquisition", "Brand Strategy"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
         email: "rahul@universalsoftlab.com"
+      }
+    },
+    {
+      name: "Narayan Rawat",
+      position: "DevOps & Cloud Infrastructure Engineer",
+      image: "/images/narayan.png",
+      objectPosition: "center center",
+      bio: "DevOps and cloud infrastructure specialist managing containerized deployments, CI/CD pipeline automation, and scalable server architectures. Ensures high availability, fast release cycles, and secure cloud environments for all USL platforms.",
+      skills: ["Docker & Kubernetes", "AWS Cloud", "CI/CD Pipelines", "Linux Server Admin", "Nginx & PM2"],
+      social: {
+        linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
+        email: "narayan@universalsoftlab.com"
       }
     }
   ];
@@ -141,6 +154,11 @@ function Team() {
       icon: <FaCheckDouble className="text-2xl text-[#ff4d01]" />,
       title: "QA Automation",
       desc: "Continuous testing via automated workflows."
+    },
+    {
+      icon: <FaCloud className="text-2xl text-[#ff4d01]" />,
+      title: "DevOps & Cloud",
+      desc: "Docker, Kubernetes, AWS & CI/CD deployment pipelines."
     }
   ];
 
@@ -156,7 +174,7 @@ function Team() {
             <span className="text-gradient">Engineering Squad</span>
           </h1>
           <p className="max-w-3xl mx-auto text-gray-400 font-sans text-sm sm:text-base leading-relaxed">
-            We operate as a high-powered 8-member multidisciplinary tech team, combining senior architecture, mobile specialization, database mastery, and QA automation.
+            We operate as a high-powered 9-member multidisciplinary tech team, combining senior architecture, mobile specialization, database mastery, cloud infrastructure, and QA automation.
           </p>
         </div>
       </section>
@@ -166,7 +184,7 @@ function Team() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="p-4 rounded-xl bg-gray-950/40 border border-gray-900">
-              <span className="text-3xl font-black text-[#ff4d01] block mb-1">8</span>
+              <span className="text-3xl font-black text-[#ff4d01] block mb-1">9</span>
               <span className="text-gray-400 text-xs font-medium uppercase font-sans">Elite Professionals</span>
             </div>
             <div className="p-4 rounded-xl bg-gray-950/40 border border-gray-900">
