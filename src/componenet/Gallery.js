@@ -16,8 +16,9 @@ function Gallery() {
 
   const galleryCategories = [
     { id: "all", name: "All", icon: <FaImages /> },
-    { id: "office", name: "Workspace", icon: <FaBuilding /> },
-    { id: "team", name: "Squad", icon: <FaUsers /> },
+    { id: "office", name: "Company Office", icon: <FaBuilding /> },
+    { id: "birthday", name: "Birthday Celebrations", icon: <FaUsers /> },
+    { id: "independence", name: "Independence Day", icon: <FaAward /> },
     { id: "projects", name: "Milestones", icon: <FaCode /> },
     { id: "awards", name: "Recognitions", icon: <FaTrophy /> }
   ];
@@ -33,11 +34,11 @@ function Gallery() {
     },
     {
       id: 2,
-      category: "team",
-      title: "Team Inauguration Ceremony",
-      description: "Our squad celebrating the opening of our new engineering block.",
-      image: "/images/gallery/inauguration-ceremony.jpeg",
-      date: "2026"
+      category: "independence",
+      title: "Flag Hoisting Ceremony",
+      description: "Our team celebrating Independence Day at the Indore office campus.",
+      image: "/images/gallery/independence-flag.jpeg",
+      date: "2025"
     },
     {
       id: 3,
@@ -57,10 +58,10 @@ function Gallery() {
     },
     {
       id: 5,
-      category: "team",
-      title: "Traditional Day Celebration",
-      description: "The boutique team during an office celebration event.",
-      image: "/images/gallery/team-traditional.jpeg",
+      category: "birthday",
+      title: "Traditional Birthday Event",
+      description: "The boutique team during an office birthday celebration dressed in traditional wear.",
+      image: "/images/gallery/birthday-traditional.jpeg",
       date: "2026"
     },
     {
@@ -89,18 +90,18 @@ function Gallery() {
     },
     {
       id: 9,
-      category: "office",
-      title: "Office Reception & Entry",
-      description: "Welcoming entrance lobby at our Indore product engineering lab.",
-      image: "/images/gallery/office-entry.jpeg",
-      date: "2026"
+      category: "independence",
+      title: "Office Entrance Decoration",
+      description: "Inspirational tricolor balloon gate set up for the national holiday celebrations.",
+      image: "/images/gallery/independence-entrance.jpeg",
+      date: "2025"
     },
     {
       id: 10,
-      category: "team",
-      title: "Strategic Group Session",
-      description: "Aligning on deliverables and project timelines in the conference huddle.",
-      image: "/images/gallery/team-discussion.jpeg",
+      category: "birthday",
+      title: "Birthday Cake & Huddle",
+      description: "Office team gathering to celebrate team member birthdays in the lounge.",
+      image: "/images/gallery/birthday-gathering.jpeg",
       date: "2026"
     },
     {
@@ -113,11 +114,27 @@ function Gallery() {
     },
     {
       id: 12,
-      category: "team",
-      title: "Team Dinner & Gathering",
-      description: "Celebrating milestones and project completions outside the office.",
-      image: "/images/gallery/team-gathering.jpeg",
+      category: "independence",
+      title: "Team Tricolor Sashes",
+      description: "USL squad celebrating Independence Day inside the product engineering lab.",
+      image: "/images/gallery/independence-team.jpeg",
+      date: "2025"
+    },
+    {
+      id: 13,
+      category: "office",
+      title: "Indore Conference Zone",
+      description: "Where we map requirements and hold virtual customer sync meetings.",
+      image: "/images/gallery/office-meeting.jpeg",
       date: "2026"
+    },
+    {
+      id: 14,
+      category: "independence",
+      title: "Festive Rangoli Setup",
+      description: "Beautiful traditional rangoli decorations prepared by the squad for the occasion.",
+      image: "/images/gallery/independence-rangoli.jpeg",
+      date: "2025"
     }
   ];
 
