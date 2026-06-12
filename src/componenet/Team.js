@@ -38,7 +38,7 @@ function Team() {
       }
     },
     {
-      name: "Naveen Raw",
+      name: "Naveen Raw Yadav",
       position: "Team Lead & Senior Full-Stack Engineer",
       image: "/images/professional-headshot-naveen.png",
       objectPosition: "center center",
