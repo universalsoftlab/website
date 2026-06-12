@@ -8,11 +8,16 @@ import {
   FaCode, 
   FaTrophy, 
   FaAward, 
-  FaLaptopCode
+  FaLaptopCode,
+  FaChevronLeft,
+  FaChevronRight,
+  FaTimes
 } from "react-icons/fa";
 
 function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const galleryCategories = [
     { id: "all", name: "All", icon: <FaImages /> },
@@ -24,24 +29,143 @@ function Gallery() {
   ];
 
   const galleryItems = [
+    // --- Company Office ---
     {
       id: 1,
       category: "office",
       title: "Indore Engineering Lab",
-      description: "Our core development office space in Indore, customized for team collaboration.",
+      description: "Our core development office space in Indore, customized for team collaboration and agile workflows.",
       image: "/images/gallery/office-desks.jpeg",
       date: "2026"
     },
     {
       id: 2,
+      category: "office",
+      title: "Developer Workstations",
+      description: "Ergonomic workspace layouts built for high-performance coding and multi-monitor setups.",
+      image: "/images/gallery/developer-workspace.jpeg",
+      date: "2026"
+    },
+    {
+      id: 3,
+      category: "office",
+      title: "Collaborative Lounge Area",
+      description: "Comfortable layout designed for virtual daily scrums, informal syncs, and team brainstorms.",
+      image: "/images/gallery/workspace-lounge.jpeg",
+      date: "2026"
+    },
+    {
+      id: 4,
+      category: "office",
+      title: "Indore Conference Zone",
+      description: "Equipped with state-of-the-art visual systems for requirement mapping and remote client alignment meetings.",
+      image: "/images/gallery/office-meeting.jpeg",
+      date: "2026"
+    },
+    {
+      id: 5,
+      category: "office",
+      title: "Indore Lab Inauguration",
+      description: "Traditional ribbon cutting and lamp lighting ceremony marking the official launch of our Indore lab.",
+      image: "/images/gallery/inauguration-ceremony.jpeg",
+      date: "2025"
+    },
+    {
+      id: 6,
+      category: "office",
+      title: "Office Reception Entry",
+      description: "The modern welcoming visual entryway to our main software development headquarters.",
+      image: "/images/gallery/office-entry.jpeg",
+      date: "2026"
+    },
+    {
+      id: 7,
+      category: "office",
+      title: "Team Collaborative Session",
+      description: "Software developers and designers working together on wireframes and system architecture models.",
+      image: "/images/gallery/team-discussion.jpeg",
+      date: "2026"
+    },
+
+    // --- Birthday Celebrations ---
+    {
+      id: 8,
+      category: "birthday",
+      title: "Traditional Birthday Event",
+      description: "The boutique team during an office birthday celebration dressed in traditional attire.",
+      image: "/images/gallery/birthday-traditional.jpeg",
+      date: "2026"
+    },
+    {
+      id: 9,
+      category: "birthday",
+      title: "Birthday Cake & Huddle",
+      description: "Office team gathering to celebrate team member birthdays in our main cafeteria lounge.",
+      image: "/images/gallery/birthday-gathering.jpeg",
+      date: "2026"
+    },
+    {
+      id: 10,
+      category: "birthday",
+      title: "Milestone Success Celebration",
+      description: "USL squad celebrating success achievements and project deliveries with team treats.",
+      image: "/images/gallery/team-celebration.jpeg",
+      date: "2026"
+    },
+    {
+      id: 11,
+      category: "birthday",
+      title: "Lounge Team Gathering",
+      description: "Enjoying informal conversations and refreshments during our Friday afternoon wind-down huddle.",
+      image: "/images/gallery/team-gathering.jpeg",
+      date: "2026"
+    },
+    {
+      id: 12,
+      category: "birthday",
+      title: "Festive Traditional Dress Group",
+      description: "Our squad presenting colorful ethnic outfits during our office celebration events.",
+      image: "/images/gallery/team-traditional.jpeg",
+      date: "2025"
+    },
+
+    // --- Independence Day ---
+    {
+      id: 13,
       category: "independence",
       title: "Flag Hoisting Ceremony",
-      description: "Our team celebrating Independence Day at the Indore office campus.",
+      description: "Our team celebrating Independence Day with a flag hoisting at the Indore campus.",
       image: "/images/gallery/independence-flag.jpeg",
       date: "2025"
     },
     {
-      id: 3,
+      id: 14,
+      category: "independence",
+      title: "Office Entrance Decoration",
+      description: "Inspirational tricolor balloon entryway setup prepared for the national holiday celebrations.",
+      image: "/images/gallery/independence-entrance.jpeg",
+      date: "2025"
+    },
+    {
+      id: 15,
+      category: "independence",
+      title: "Team Tricolor Sashes",
+      description: "The USL team celebrating Independence Day dressed in white with tricolor sashes.",
+      image: "/images/gallery/independence-team.jpeg",
+      date: "2025"
+    },
+    {
+      id: 16,
+      category: "independence",
+      title: "Festive Rangoli Setup",
+      description: "Beautiful traditional rangoli decorations prepared by the squad at the Indore office entrance.",
+      image: "/images/gallery/independence-rangoli.jpeg",
+      date: "2025"
+    },
+
+    // --- Dummy: Milestones / Projects ---
+    {
+      id: 17,
       category: "projects",
       title: "Loan Processing Portal",
       description: "Client presentation dashboard of our COSMOS credit society platform.",
@@ -49,31 +173,17 @@ function Gallery() {
       date: "2025"
     },
     {
-      id: 4,
-      category: "office",
-      title: "Developer Workstations",
-      description: "Ergonomic workspace layouts built for high-performance coding.",
-      image: "/images/gallery/developer-workspace.jpeg",
-      date: "2026"
-    },
-    {
-      id: 5,
-      category: "birthday",
-      title: "Traditional Birthday Event",
-      description: "The boutique team during an office birthday celebration dressed in traditional wear.",
-      image: "/images/gallery/birthday-traditional.jpeg",
-      date: "2026"
-    },
-    {
-      id: 6,
+      id: 18,
       category: "projects",
       title: "Hospital Management Dashboard",
       description: "Live billing tracking and calendar logs implementation view.",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=600&auto=format&fit=crop",
       date: "2025"
     },
+
+    // --- Dummy: Recognitions / Awards ---
     {
-      id: 7,
+      id: 19,
       category: "awards",
       title: "Cooperative Auditing Credentials",
       description: "Compliance certification achieved by our financial software core.",
@@ -81,59 +191,11 @@ function Gallery() {
       date: "2026"
     },
     {
-      id: 8,
+      id: 20,
       category: "awards",
       title: "ISO Standard Verification",
       description: "Recognitions received for quality database architectures.",
       image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=600&auto=format&fit=crop",
-      date: "2025"
-    },
-    {
-      id: 9,
-      category: "independence",
-      title: "Office Entrance Decoration",
-      description: "Inspirational tricolor balloon gate set up for the national holiday celebrations.",
-      image: "/images/gallery/independence-entrance.jpeg",
-      date: "2025"
-    },
-    {
-      id: 10,
-      category: "birthday",
-      title: "Birthday Cake & Huddle",
-      description: "Office team gathering to celebrate team member birthdays in the lounge.",
-      image: "/images/gallery/birthday-gathering.jpeg",
-      date: "2026"
-    },
-    {
-      id: 11,
-      category: "office",
-      title: "Collaborative Lounge Area",
-      description: "Comfortable layout designed for virtual daily scrums and brainstorms.",
-      image: "/images/gallery/workspace-lounge.jpeg",
-      date: "2026"
-    },
-    {
-      id: 12,
-      category: "independence",
-      title: "Team Tricolor Sashes",
-      description: "USL squad celebrating Independence Day inside the product engineering lab.",
-      image: "/images/gallery/independence-team.jpeg",
-      date: "2025"
-    },
-    {
-      id: 13,
-      category: "office",
-      title: "Indore Conference Zone",
-      description: "Where we map requirements and hold virtual customer sync meetings.",
-      image: "/images/gallery/office-meeting.jpeg",
-      date: "2026"
-    },
-    {
-      id: 14,
-      category: "independence",
-      title: "Festive Rangoli Setup",
-      description: "Beautiful traditional rangoli decorations prepared by the squad for the occasion.",
-      image: "/images/gallery/independence-rangoli.jpeg",
       date: "2025"
     }
   ];
@@ -141,6 +203,24 @@ function Gallery() {
   const filteredItems = selectedCategory === "all" 
     ? galleryItems 
     : galleryItems.filter(item => item.category === selectedCategory);
+
+  React.useEffect(() => {
+    if (!isLightboxOpen || lightboxIndex === null) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        setLightboxIndex((prev) => (prev === 0 ? filteredItems.length - 1 : prev - 1));
+      } else if (e.key === "ArrowRight") {
+        setLightboxIndex((prev) => (prev === filteredItems.length - 1 ? 0 : prev + 1));
+      } else if (e.key === "Escape") {
+        setIsLightboxOpen(false);
+        setLightboxIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isLightboxOpen, lightboxIndex, filteredItems.length]);
 
   return (
     <div className="w-full">
@@ -185,18 +265,30 @@ function Gallery() {
       <section className="py-24 bg-[#0b0f19]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, index) => (
               <div 
                 key={item.id} 
-                className="glass-card rounded-2xl overflow-hidden hover:scale-[1.01] transition-transform duration-300 flex flex-col justify-between"
+                onClick={() => {
+                  setLightboxIndex(index);
+                  setIsLightboxOpen(true);
+                }}
+                className="glass-card rounded-2xl overflow-hidden hover:scale-[1.01] transition-transform duration-300 flex flex-col justify-between cursor-pointer group"
               >
                 <div className="relative h-60 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-300"
+                    className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/20 to-transparent"></div>
+                  
+                  {/* Subtle premium hover overlay */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="bg-[#ff4d01] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-350">
+                      <FaCamera /> View Fullscreen
+                    </span>
+                  </div>
+
                   <div className="absolute bottom-4 left-6">
                     <h3 className="text-lg font-bold text-white tracking-tight leading-snug">{item.title}</h3>
                     <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold font-sans">{item.date}</span>
@@ -265,6 +357,113 @@ function Gallery() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal Overlay */}
+      {isLightboxOpen && lightboxIndex !== null && filteredItems[lightboxIndex] && (
+        <div className="fixed inset-0 z-50 flex flex-col justify-between bg-black/95 backdrop-blur-xl p-4 md:p-6 select-none animate-fade-in">
+          {/* Top Panel (Category name, Title, Counter, Close) */}
+          <div className="flex items-center justify-between w-full border-b border-gray-900 pb-3 md:pb-4">
+            <div className="flex flex-col">
+              <span className="text-[10px] text-[#ff4d01] font-bold uppercase tracking-widest font-sans">
+                {galleryCategories.find(cat => cat.id === filteredItems[lightboxIndex].category)?.name} Section
+              </span>
+              <h2 className="text-white text-base md:text-lg font-bold truncate max-w-xs md:max-w-md">
+                {filteredItems[lightboxIndex].title}
+              </h2>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <span className="text-xs text-gray-500 font-medium font-sans">
+                {lightboxIndex + 1} / {filteredItems.length}
+              </span>
+              <button
+                onClick={() => {
+                  setIsLightboxOpen(false);
+                  setLightboxIndex(null);
+                }}
+                className="w-10 h-10 rounded-full bg-gray-950 border border-gray-900 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-700 hover:bg-gray-900 transition-all cursor-pointer"
+                title="Close (Esc)"
+              >
+                <FaTimes size={16} />
+              </button>
+            </div>
+          </div>
+
+          {/* Main Visual Slider (Arrows + Image) */}
+          <div className="relative flex-grow flex items-center justify-between my-4 max-h-[60vh] md:max-h-[65vh]">
+            {/* Left Arrow Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((prev) => (prev === 0 ? filteredItems.length - 1 : prev - 1));
+              }}
+              className="absolute left-0 md:left-4 z-10 w-12 h-12 rounded-full bg-gray-950/80 border border-gray-900/50 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-700 hover:bg-gray-900 transition-all cursor-pointer shadow-lg hover:scale-105"
+              title="Previous Image (Left Arrow)"
+            >
+              <FaChevronLeft size={18} />
+            </button>
+
+            {/* Main Image View */}
+            <div className="w-full h-full flex items-center justify-center px-12" onClick={() => {
+              // Clicking the image itself advances to next
+              setLightboxIndex((prev) => (prev === filteredItems.length - 1 ? 0 : prev + 1));
+            }}>
+              <img
+                src={filteredItems[lightboxIndex].image}
+                alt={filteredItems[lightboxIndex].title}
+                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border border-gray-900 transition-all duration-300"
+              />
+            </div>
+
+            {/* Right Arrow Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((prev) => (prev === filteredItems.length - 1 ? 0 : prev + 1));
+              }}
+              className="absolute right-0 md:right-4 z-10 w-12 h-12 rounded-full bg-gray-950/80 border border-gray-900/50 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-700 hover:bg-gray-900 transition-all cursor-pointer shadow-lg hover:scale-105"
+              title="Next Image (Right Arrow)"
+            >
+              <FaChevronRight size={18} />
+            </button>
+          </div>
+
+          {/* Bottom Panel (Info details + Navigation Thumbnails) */}
+          <div className="border-t border-gray-900 pt-4 flex flex-col items-center gap-4">
+            <div className="text-center max-w-2xl px-4">
+              <p className="text-gray-300 font-sans text-sm md:text-base leading-relaxed">
+                {filteredItems[lightboxIndex].description}
+              </p>
+              <span className="inline-block mt-1.5 text-[11px] text-gray-500 font-semibold uppercase tracking-wider font-sans">
+                Captured in {filteredItems[lightboxIndex].date}
+              </span>
+            </div>
+
+            {/* Thumbnails Row */}
+            <div className="w-full max-w-4xl overflow-x-auto py-2 px-4 scrollbar-thin">
+              <div className="flex justify-center gap-2 md:gap-3 min-w-max mx-auto">
+                {filteredItems.map((item, index) => (
+                  <div
+                    key={item.id}
+                    onClick={() => setLightboxIndex(index)}
+                    className={`relative w-16 h-12 md:w-20 md:h-14 rounded-lg overflow-hidden cursor-pointer border-2 transition-all duration-250 ${
+                      index === lightboxIndex
+                        ? "border-[#ff4d01] opacity-100 scale-105 shadow-md shadow-[#ff4d01]/25"
+                        : "border-gray-900 opacity-40 hover:opacity-85"
+                    }`}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
