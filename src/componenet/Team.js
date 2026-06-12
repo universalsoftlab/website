@@ -17,7 +17,7 @@ function Team() {
     {
       name: "Hemant Mehta",
       position: "Founder & Solution Architect",
-      image: "/images/professional-headshot-suit-2.png",
+      image: "/team/professional-headshot-suit-2.png",
       objectPosition: "center center",
       bio: "22+ years of technology leadership and enterprise software design. Architected complex loan systems, cotton mill ERP platforms, and custom databases. Deep specialist in C#, .NET Core, SQL Server, and query plan performance tuning.",
       skills: ["Software Architecture", "C# & .NET Core", "SQL Server Optimization", "API Design", "Legacy Modernization"],
@@ -29,7 +29,7 @@ function Team() {
     {
       name: "Priya Shivhare",
       position: "HR Manager",
-      image: "/images/priya.png",
+      image: "/team/priya.png",
       objectPosition: "center center",
       bio: "Experienced Human Resources professional managing organizational development, recruitment strategy, and employee engagement. Oversees team alignment, project administration, and operational policy implementation.",
       skills: ["Talent Acquisition", "Employee Relations", "Team Alignment", "HR Operations", "Performance Management"],
@@ -41,7 +41,7 @@ function Team() {
     {
       name: "Naveen Raw Yadav",
       position: "Team Lead & Senior Full-Stack Engineer",
-      image: "/images/professional-headshot-naveen.png",
+      image: "/team/professional-headshot-naveen.png",
       objectPosition: "center center",
       bio: "Lead full-stack developer with deep expertise in the MERN stack, Golang, and PostgreSQL. Expert in architecting high-performance web applications, designing scalable backend APIs, and managing SQL/NoSQL database systems.",
       skills: ["Team Leadership", "MERN Stack", "Golang", "PostgreSQL", "REST APIs", "Agile & Code Reviews"],
@@ -53,7 +53,7 @@ function Team() {
     {
       name: "Deepanshu Bhavsar",
       position: "Senior Mobile & Frontend Developer",
-      image: "/images/deepanshu.png",
+      image: "/team/deepanshu.png",
       objectPosition: "center center",
       bio: "Frontend and mobile specialist with deep expertise in cross-platform UI rendering, state management pipelines, and robust responsive layouts.",
       skills: ["React", "Flutter", "TypeScript", "Redux Toolkit", "Responsive Design"],
@@ -65,7 +65,7 @@ function Team() {
     {
       name: "Kunal Awarekar",
       position: "Full-Stack C# / SQL Engineer",
-      image: "/images/kunal.jpeg",
+      image: "/team/kunal.jpeg",
       objectPosition: "center center",
       bio: "Full-stack engineer specializing in modern .NET Core backends, database procedures, and React portal configurations.",
       skills: ["C#", "ASP.NET Core", "SQL Server", "Web APIs", "React"],
@@ -77,7 +77,7 @@ function Team() {
     {
       name: "Shivani Yadav",
       position: "QA Automation & Testing Engineer",
-      image: "/images/shivani.png",
+      image: "/team/shivani.png",
       objectPosition: "center center",
       bio: "Quality assurance specialist focusing on automated test suites, end-to-end workflows, API verification, and regression testing to ensure software performance and release quality.",
       skills: ["Test Automation", "Jest & Cypress", "E2E Testing", "Regression Testing", "API Testing"],
@@ -89,7 +89,7 @@ function Team() {
     {
       name: "Prachi Chobey",
       position: "Senior UI/UX Designer",
-      image: "/images/Prachi.png",
+      image: "/team/Prachi.png",
       objectPosition: "center center",
       bio: "Creates visual design systems, wireframes, and click-through interactive prototypes in Figma, mapping seamless user journeys.",
       skills: ["Figma UI/UX", "Wireframing", "Interactive Prototypes", "Design Systems", "User Journeys"],
@@ -101,7 +101,7 @@ function Team() {
     {
       name: "Rahul Shrivas",
       position: "Marketing & Growth Lead",
-      image: "/images/Rahul.png",
+      image: "/team/Rahul.png",
       objectPosition: "center center",
       bio: "Lead marketing and business growth strategist. Specializes in client acquisition, brand development, marketing campaigns, and technology partnership management.",
       skills: ["Digital Marketing", "Growth Strategy", "Lead Generation", "Client Acquisition", "Brand Strategy"],
@@ -113,7 +113,7 @@ function Team() {
     {
       name: "Narayan Rawat",
       position: "DevOps & Cloud Infrastructure Engineer",
-      image: "/images/narayan.png",
+      image: "/team/narayan.png",
       objectPosition: "center center",
       bio: "DevOps and cloud infrastructure specialist managing containerized deployments, CI/CD pipeline automation, and scalable server architectures. Ensures high availability, fast release cycles, and secure cloud environments for all USL platforms.",
       skills: ["Docker & Kubernetes", "AWS Cloud", "CI/CD Pipelines", "Linux Server Admin", "Nginx & PM2"],
