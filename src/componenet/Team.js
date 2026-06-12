@@ -39,11 +39,11 @@ function Team() {
     },
     {
       name: "Naveen Raw",
-      position: "Team Lead & Senior Mobile Engineer",
+      position: "Team Lead & MERN Stack Developer",
       image: "/images/professional-headshot-naveen.png",
       objectPosition: "center center",
-      bio: "Lead mobile developer with extensive experience building React Native and Flutter portals. Expert in local database caching, offline synchronization, and native component integration.",
-      skills: ["React Native", "Flutter", "Mobile Architecture", "Offline Caching", "API Sync"],
+      bio: "Lead full-stack developer specializing in the MERN (MongoDB, Express, React, Node.js) stack. Expert in architecting scalable web applications, designing RESTful APIs, and implementing secure database models.",
+      skills: ["MongoDB", "Express.js", "React", "Node.js", "REST APIs"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
         email: "naveen@universalsoftlab.com"
