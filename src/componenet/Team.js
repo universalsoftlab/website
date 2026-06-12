@@ -17,6 +17,7 @@ function Team() {
       name: "Hemant Mehta",
       position: "Founder & Solution Architect",
       image: "/images/professional-headshot-suit-2.png",
+      objectPosition: "object-center",
       bio: "22+ years of technology leadership and enterprise software design. Architected complex loan systems, cotton mill ERP platforms, and custom databases. Deep specialist in C#, .NET Core, SQL Server, and query plan performance tuning.",
       skills: ["Software Architecture", "C# & .NET Core", "SQL Server Optimization", "API Design", "Legacy Modernization"],
       social: {
@@ -27,7 +28,8 @@ function Team() {
     {
       name: "Priya Shivhare",
       position: "Director & Strategy Lead",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=400&auto=format&fit=crop",
+      image: "/images/priya.png",
+      objectPosition: "object-top",
       bio: "22+ years of experience in technical planning, business strategy, and delivery management. Directs client alignment, scope sizing, and project governance for all international accounts.",
       skills: ["Product Strategy", "Project Governance", "Requirement Mapping", "Client Relations", "Startup Advisory"],
       social: {
@@ -39,6 +41,7 @@ function Team() {
       name: "Naveen Raw",
       position: "Team Lead & Senior Mobile Engineer",
       image: "/images/professional-headshot-naveen.png",
+      objectPosition: "object-top",
       bio: "Lead mobile developer with extensive experience building React Native and Flutter portals. Expert in local database caching, offline synchronization, and native component integration.",
       skills: ["React Native", "Flutter", "Mobile Architecture", "Offline Caching", "API Sync"],
       social: {
@@ -50,6 +53,7 @@ function Team() {
       name: "Deepanshu",
       position: "Senior Mobile & Frontend Developer",
       image: "/images/deepanshu.png",
+      objectPosition: "object-top",
       bio: "Frontend and mobile specialist with deep expertise in cross-platform UI rendering, state management pipelines, and robust responsive layouts.",
       skills: ["React", "Flutter", "TypeScript", "Redux Toolkit", "Responsive Design"],
       social: {
@@ -61,6 +65,7 @@ function Team() {
       name: "Kunal Awarekar",
       position: "Full-Stack C# / SQL Engineer",
       image: "/images/kunal.jpeg",
+      objectPosition: "object-top",
       bio: "Full-stack engineer specializing in modern .NET Core backends, database procedures, and React portal configurations.",
       skills: ["C#", "ASP.NET Core", "SQL Server", "Web APIs", "React"],
       social: {
@@ -72,6 +77,7 @@ function Team() {
       name: "Shivani Yadav",
       position: "Software Developer",
       image: "/images/shivani.png",
+      objectPosition: "object-top",
       bio: "Backend developer focusing on relational data schemas, index tuning, integration scripting, and SQL reporting query design.",
       skills: ["PostgreSQL", "SQL Server", "Stored Procedures", "Data Migration", "C#"],
       social: {
@@ -83,6 +89,7 @@ function Team() {
       name: "Prachi Chobey",
       position: "Senior UI/UX Designer",
       image: "/images/Prachi.png",
+      objectPosition: "object-top",
       bio: "Creates visual design systems, wireframes, and click-through interactive prototypes in Figma, mapping seamless user journeys.",
       skills: ["Figma UI/UX", "Wireframing", "Interactive Prototypes", "Design Systems", "User Journeys"],
       social: {
@@ -94,6 +101,7 @@ function Team() {
       name: "Rahul",
       position: "Marketing & Growth Lead",
       image: "/images/Rahul.png",
+      objectPosition: "object-top",
       bio: "Lead marketing and business growth strategist. Specializes in client acquisition, brand development, marketing campaigns, and technology partnership management.",
       skills: ["Digital Marketing", "Growth Strategy", "Lead Generation", "Client Acquisition", "Brand Strategy"],
       social: {
@@ -191,7 +199,7 @@ function Team() {
                     <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-300"
+                      className={`w-full h-full object-cover ${member.objectPosition || 'object-center'} grayscale-[20%] hover:grayscale-0 transition-all duration-300`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/20 to-transparent"></div>
                     <div className="absolute bottom-4 left-6">
