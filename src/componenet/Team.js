@@ -46,7 +46,7 @@ function Team() {
       bio: "Lead full-stack developer with deep expertise in the MERN stack, Golang, and PostgreSQL. Expert in architecting high-performance web applications, designing scalable backend APIs, and managing SQL/NoSQL database systems.",
       skills: ["Team Leadership", "MERN Stack", "Golang", "PostgreSQL", "REST APIs", "Agile & Code Reviews"],
       social: {
-        linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
+        linkedin: "https://www.linkedin.com/in/naveen-raw-yadav-5b581b105/",
         email: "naveen@universalsoftlab.com"
       }
     },
