@@ -39,11 +39,11 @@ function Team() {
     },
     {
       name: "Naveen Raw",
-      position: "Team Lead & MERN Stack Developer",
+      position: "Team Lead & Senior Full-Stack Engineer",
       image: "/images/professional-headshot-naveen.png",
       objectPosition: "center center",
-      bio: "Lead full-stack developer specializing in the MERN (MongoDB, Express, React, Node.js) stack. Expert in architecting scalable web applications, designing RESTful APIs, and implementing secure database models.",
-      skills: ["MongoDB", "Express.js", "React", "Node.js", "REST APIs"],
+      bio: "Lead full-stack developer with deep expertise in the MERN stack, Golang, and PostgreSQL. Expert in architecting high-performance web applications, designing scalable backend APIs, and managing SQL/NoSQL database systems.",
+      skills: ["Team Leadership", "MERN Stack", "Golang", "PostgreSQL", "REST APIs", "Agile & Code Reviews"],
       social: {
         linkedin: "https://www.linkedin.com/company/universal-soft-lab/about/",
         email: "naveen@universalsoftlab.com"
