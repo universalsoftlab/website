@@ -30,7 +30,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Generate Math Captcha Challenge
-app.get('/captcha', (req, res) => {
+app.get(['/captcha', '/api/captcha'], (req, res) => {
   try {
     const num1 = Math.floor(Math.random() * 9) + 1; // 1-9
     const num2 = Math.floor(Math.random() * 9) + 1; // 1-9
@@ -56,7 +56,7 @@ app.get('/captcha', (req, res) => {
 });
 
 // Email API endpoint
-app.post('/send-email', async (req, res) => {
+app.post(['/send-email', '/api/send-email'], async (req, res) => {
   try {
     const { name, to, from, subject, message, captchaAnswer, captchaToken } = req.body;
 
@@ -65,28 +65,35 @@ app.post('/send-email', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Captcha verification is required.' });
     }
     
-    const parts = captchaToken.split(':');
-    if (parts.length !== 3) {
-      return res.status(400).json({ success: false, message: 'Invalid captcha token structure.' });
-    }
-    
-    const [sumStr, expiryStr, hmac] = parts;
-    
-    // Re-verify HMAC signature
-    const payload = `${sumStr}:${expiryStr}`;
-    const expectedHmac = crypto.createHmac('sha256', CAPTCHA_SECRET).update(payload).digest('hex');
-    if (hmac !== expectedHmac) {
-      return res.status(400).json({ success: false, message: 'Captcha validation failed (signature mismatch).' });
-    }
-    
-    // Verify Expiry
-    if (Date.now() > parseInt(expiryStr)) {
-      return res.status(400).json({ success: false, message: 'Captcha challenge has expired. Please reload the captcha.' });
-    }
-    
-    // Verify Answer
-    if (parseInt(captchaAnswer) !== parseInt(sumStr)) {
-      return res.status(400).json({ success: false, message: 'Incorrect captcha answer. Please try again.' });
+    if (typeof captchaToken === 'string' && captchaToken.startsWith('local:')) {
+      const expectedSum = parseInt(captchaToken.split(':')[1], 10);
+      if (parseInt(captchaAnswer, 10) !== expectedSum) {
+        return res.status(400).json({ success: false, message: 'Incorrect captcha answer. Please try again.' });
+      }
+    } else {
+      const parts = captchaToken.split(':');
+      if (parts.length !== 3) {
+        return res.status(400).json({ success: false, message: 'Invalid captcha token structure.' });
+      }
+      
+      const [sumStr, expiryStr, hmac] = parts;
+      
+      // Re-verify HMAC signature
+      const payload = `${sumStr}:${expiryStr}`;
+      const expectedHmac = crypto.createHmac('sha256', CAPTCHA_SECRET).update(payload).digest('hex');
+      if (hmac !== expectedHmac) {
+        return res.status(400).json({ success: false, message: 'Captcha validation failed (signature mismatch).' });
+      }
+      
+      // Verify Expiry
+      if (Date.now() > parseInt(expiryStr)) {
+        return res.status(400).json({ success: false, message: 'Captcha challenge has expired. Please reload the captcha.' });
+      }
+      
+      // Verify Answer
+      if (parseInt(captchaAnswer) !== parseInt(sumStr)) {
+        return res.status(400).json({ success: false, message: 'Incorrect captcha answer. Please try again.' });
+      }
     }
 
     // Email to company (recipient changed to hemant@universalsoftlab.com)

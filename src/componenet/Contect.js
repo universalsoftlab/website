@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { 
   FaMapMarkerAlt, 
   FaPhoneAlt, 
@@ -14,6 +15,7 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +23,18 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+
+  useEffect(() => {
+    const subject = searchParams.get("subject");
+    const message = searchParams.get("message");
+    if (subject || message) {
+      setFormData(prev => ({
+        ...prev,
+        subject: subject || prev.subject,
+        message: message || prev.message
+      }));
+    }
+  }, [searchParams]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -31,6 +45,14 @@ const Contact = () => {
   const [captchaAnswer, setCaptchaAnswer] = useState("");
   const [captchaLoading, setCaptchaLoading] = useState(false);
 
+  const generateFallbackCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 9) + 1;
+    const num2 = Math.floor(Math.random() * 9) + 1;
+    setCaptchaQuestion(`What is ${num1} + ${num2}?`);
+    setCaptchaToken(`local:${num1 + num2}`);
+    setCaptchaAnswer("");
+  };
+
   const fetchCaptcha = async () => {
     setCaptchaLoading(true);
     const captchaUrl = window.location.hostname === "localhost" 
@@ -40,12 +62,17 @@ const Contact = () => {
       const response = await fetch(captchaUrl);
       if (response.ok) {
         const data = await response.json();
-        setCaptchaQuestion(data.question);
-        setCaptchaToken(data.token);
-        setCaptchaAnswer(""); // reset client input
+        if (data && data.question && data.token) {
+          setCaptchaQuestion(data.question);
+          setCaptchaToken(data.token);
+          setCaptchaAnswer(""); // reset client input
+          return;
+        }
       }
+      generateFallbackCaptcha();
     } catch (err) {
-      console.error("Error loading mathematical captcha challenge:", err);
+      console.warn("API captcha unavailable, using fallback math challenge:", err);
+      generateFallbackCaptcha();
     } finally {
       setCaptchaLoading(false);
     }
@@ -53,6 +80,7 @@ const Contact = () => {
 
   useEffect(() => {
     fetchCaptcha();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e) => {

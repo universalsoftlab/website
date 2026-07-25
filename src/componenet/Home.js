@@ -110,27 +110,27 @@ function Home() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-            Build Scalable Software Products <br />
-            <span className="text-gradient">With Absolute Confidence</span>
+            Product Engineering & <br />
+            <span className="text-gradient">Legacy Modernization</span>
           </h1>
 
           <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed font-sans">
-            Universal Soft Lab is a software development and product engineering agency backed by <span className="text-white font-medium">22+ years of technology experience</span>. We help startups and global enterprises build high-performance web, mobile, and cloud applications.
+            Backed by <span className="text-white font-medium">22+ years of software excellence</span>, we help startups and enterprises design, build, and optimize scalable digital products.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-4xl mx-auto">
             <Link
-              to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#ff4d01] hover:bg-[#ff5d1a] text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-[#ff4d01]/25 transition-all duration-300 transform hover:-translate-y-0.5"
+              to="/contact?subject=Free%20Database%20Performance%20Review&message=Hi%20Hemant%2C%20I%20would%20like%20to%20request%20a%20free%20Database%20Performance%20Review%20for%20our%20system.%20Here%20are%20some%20details%20about%20our%20database%20technology%20and%20current%20performance%20bottlenecks%3A"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#ff4d01] hover:bg-[#ff5d1a] text-white px-6 py-4 rounded-xl font-bold shadow-lg shadow-[#ff4d01]/25 transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base text-center"
             >
-              <span>Start Your Project</span>
-              <FaArrowRight className="text-sm" />
+              <span>Request a Free Database Performance Review</span>
+              <FaArrowRight className="text-xs flex-shrink-0" />
             </Link>
             <Link
-              to="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white border border-gray-800 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-0.5"
+              to="/contact?subject=Legacy%20Code%20Modernization%20Audit&message=Hi%20Hemant%2C%20I%20would%20like%20to%20schedule%20a%20Legacy%20Code%20Modernization%20Audit%20for%20our%20application.%20Here%20are%20some%20details%20about%20our%20existing%20desktop/web%20systems%20and%20modernization%20goals%3A"
+              className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 hover:bg-gray-850 text-white border border-gray-800/80 px-6 py-4 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base text-center hover:border-gray-700"
             >
-              <span>Explore Case Studies</span>
+              <span>Schedule a Legacy Code Modernization Audit</span>
             </Link>
           </div>
         </div>

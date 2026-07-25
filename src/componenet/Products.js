@@ -7,11 +7,21 @@ import {
   FaHospital, 
   FaBuilding, 
   FaCheck,
-  FaArrowRight
+  FaArrowRight,
+  FaSync
 } from "react-icons/fa";
 
 function Products() {
   const caseStudies = [
+    {
+      icon: <FaSync className="text-3xl text-[#ff4d01]" />,
+      title: "WinForms to Cloud-Native React/Node.js Migration",
+      category: "Legacy Modernization",
+      challenge: "User interface and database query logic were tightly coupled inside legacy WinForms desktop apps, resulting in slow query responses (exceeding 4 minutes) and high on-premise infrastructure costs.",
+      solution: "Separated database concerns from UI layouts, tuned SQL Server and PostgreSQL index plans, deployed a decoupled ASP.NET Core REST API layer, and created a responsive React frontend web application.",
+      techs: ["WinForms to React", "ASP.NET Core", "Node.js", "PostgreSQL", "AWS Cloud"],
+      outcome: "Reduced report generation time from 4 minutes to 7.5 seconds (96% speedup), cut monthly hosting costs by 70%, and enabled complete mobile accessibility."
+    },
     {
       icon: <FaUniversity className="text-3xl text-[#ff4d01]" />,
       title: "COSMOS — Core Banking & Loan Management",

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaTimes, FaComments } from "react-icons/fa";
+import { FaBars, FaTimes, FaComments, FaDownload } from "react-icons/fa";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -79,11 +79,20 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Consultation Button */}
-          <div className="hidden md:block">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="/downloads/CosmosSetup.exe"
+              download="CosmosSetup.exe"
+              className="inline-flex items-center gap-2 bg-gray-900/90 hover:bg-gray-800 text-gray-200 hover:text-white border border-gray-700/60 hover:border-[#ff4d01] px-4 py-2.5 rounded-lg text-xs lg:text-sm font-semibold transition-all duration-300 transform hover:-translate-y-0.5"
+              title="Download COSMOS Desktop Application (.exe)"
+            >
+              <FaDownload className="text-[#ff4d01]" />
+              <span>Download COSMOS</span>
+            </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-[#ff4d01] hover:bg-[#ff5d1a] text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-[#ff4d01]/10 hover:shadow-[#ff4d01]/20 transition-all duration-300 transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-[#ff4d01] hover:bg-[#ff5d1a] text-white px-5 py-2.5 rounded-lg text-xs lg:text-sm font-semibold shadow-lg shadow-[#ff4d01]/10 hover:shadow-[#ff4d01]/20 transition-all duration-300 transform hover:-translate-y-0.5"
             >
               <FaComments />
               <span>Let's Talk</span>
@@ -153,7 +162,16 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-gray-800 space-y-4">
+        <div className="pt-6 border-t border-gray-800 space-y-3">
+          <a
+            href="/downloads/CosmosSetup.exe"
+            download="CosmosSetup.exe"
+            onClick={() => setIsMenuOpen(false)}
+            className="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-200 border border-gray-700 py-3 rounded-lg text-sm font-semibold transition-all"
+          >
+            <FaDownload className="text-[#ff4d01]" />
+            <span>Download COSMOS App</span>
+          </a>
           <Link
             to="/contact"
             onClick={() => setIsMenuOpen(false)}
